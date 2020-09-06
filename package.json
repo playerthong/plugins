@@ -1,0 +1,28 @@
+{
+  "name": "bridged-figma-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "create-figma-plugin",
+    "figma",
+    "figma-plugin"
+  ],
+  "license": "MIT",
+  "author": "softmarshmallow",
+  "dependencies": {
+    "@create-figma-plugin/utilities": "0.0.77"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "0.0.77",
+    "@create-figma-plugin/tsconfig": "0.0.77",
+    "@figma/plugin-typings": "^1.16.1"
+  },
+  "scripts": {
+    "build": "build-figma-plugin",
+    "watch": "build-figma-plugin --watch"
+  },
+  "figma-plugin": {
+    "id": "bridged-figma-plugin",
+    "name": "Bridged Figma Plugin",
+    "main": "src/main.ts"
+  }
+}
