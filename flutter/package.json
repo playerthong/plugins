@@ -1,0 +1,10 @@
+{
+  "name": "@bridged.xyz/figma-flutter",
+  "version": "0.0.1",
+  "description": "flutter builder for bridged's figma plugin",
+  "main": "index.js",
+  "repository": "https://github.com/bridgedxyz/figma",
+  "author": "softmarshmallow <woojoo@softmarshmallow.com>",
+  "license": "MIT",
+  "private": false
+}
