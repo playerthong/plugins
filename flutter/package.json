@@ -8,6 +8,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+  },
+  "devDependencies": {
     "@figma/plugin-typings": "^1.16.1"
   }
 }

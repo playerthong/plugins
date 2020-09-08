@@ -3,8 +3,13 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
+    "lib": ["ES2017"],
     "module": "commonjs",
     "target": "es6",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+  ]
   }
 }
