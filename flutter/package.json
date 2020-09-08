@@ -6,5 +6,8 @@
   "repository": "https://github.com/bridgedxyz/figma",
   "author": "softmarshmallow <woojoo@softmarshmallow.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@figma/plugin-typings": "^1.16.1"
+  }
 }
