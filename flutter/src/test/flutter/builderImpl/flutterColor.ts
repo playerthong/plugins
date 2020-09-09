@@ -1,6 +1,6 @@
 import { rgbTo8hex, gradientAngle } from "../../common/color";
 import { retrieveFill } from "../../common/retrieveFill";
-import { nearestValue } from "../../tailwind/conversionTables";
+import { nearestValue } from "../../utils/convert";
 
 /**
  * Retrieve the SOLID color for Flutter when existent, otherwise ""

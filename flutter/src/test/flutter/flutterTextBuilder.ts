@@ -1,7 +1,7 @@
 import { commonLetterSpacing } from "./../common/commonTextHeightSpacing";
 import { FlutterDefaultBuilder } from "./flutterDefaultBuilder";
 import { AltTextNode } from "../altNodes/altMixins";
-// import { convertFontWeight } from "../tailwind/tailwindTextBuilder";
+import { convertFontWeight } from "../utils/text-convert";
 import { flutterColor } from "./builderImpl/flutterColor";
 import { numToAutoFixed } from "../common/numToAutoFixed";
 
