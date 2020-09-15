@@ -2,19 +2,28 @@
   "name": "@bridged.xyz/figma-plugin",
   "version": "1.0.0",
   "keywords": [
-    "create-figma-plugin",
     "figma",
+    "bridged",
+    "flutter",
+    "flutter-figma",
     "figma-plugin"
   ],
   "license": "MIT",
   "author": "softmarshmallow",
   "dependencies": {
-    "@create-figma-plugin/utilities": "0.0.77"
+    "@create-figma-plugin/ui": "^0.0.79",
+    "@create-figma-plugin/utilities": "0.0.77",
+    "preact": "^10.4.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "0.0.77",
     "@create-figma-plugin/tsconfig": "0.0.77",
-    "@figma/plugin-typings": "^1.16.1"
+    "@figma/plugin-typings": "^1.16.1",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "typescript": "^3.9.5"
   },
   "scripts": {
     "build": "build-figma-plugin",
@@ -22,7 +31,8 @@
   },
   "figma-plugin": {
     "id": "bridged-figma-plugin",
-    "name": "Bridged Figma Plugin",
-    "main": "src/main.ts"
+    "name": "Bridged",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
   }
 }

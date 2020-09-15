@@ -14,13 +14,13 @@
 First:
 
 ```
-$ npm install
+$ yarn install
 ```
 
 To build the plugin:
 
 ```
-$ npm run build
+$ yarn build
 ```
 
 This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) file and a `build/` directory containing a JavaScript bundle for the plugin.
@@ -28,7 +28,7 @@ This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) 
 To watch for code changes and rebuild the plugin automatically:
 
 ```
-$ npm run watch
+$ yarn watch
 ```
 
 ### Installing the plugin
