@@ -11,6 +11,7 @@
   "license": "MIT",
   "author": "softmarshmallow",
   "dependencies": {
+    "@bridged.xyz/figma-flutter": "file:../flutter",
     "@create-figma-plugin/ui": "^0.0.79",
     "@create-figma-plugin/utilities": "0.0.77",
     "preact": "^10.4.8",

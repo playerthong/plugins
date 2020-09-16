@@ -1,5 +1,5 @@
-import { AltGroupNode } from "./../altNodes/altMixins";
-import { retrieveFill } from "./../common/retrieveFill";
+import { AltGroupNode } from "../altNodes/altMixins";
+import { retrieveFill } from "../common/retrieveFill";
 import { flutterPosition } from "./builderImpl/flutterPosition";
 import {
   flutterVisibility,

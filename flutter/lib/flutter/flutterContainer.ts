@@ -1,4 +1,4 @@
-import { AltGroupNode } from "./../altNodes/altMixins";
+import { AltGroupNode } from "../altNodes/altMixins";
 import {
   flutterBorderRadius,
   flutterBorder,

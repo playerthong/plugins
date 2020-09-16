@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./lib",
     "sourceMap": true,
     "lib": ["ES2017"],
     "module": "commonjs",
@@ -10,6 +10,10 @@
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@figma"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
   ]
   }
 }
