@@ -1,47 +1,34 @@
-// // src/ui.tsx
-import { render, Container, Text, VerticalSpace } from '@create-figma-plugin/ui'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import './ui.css'
 
-// /** @jsx h */
-// import { h } from 'preact'
+declare function require(path: string): any
 
-// function Plugin (props: { greeting: string }) {
-//   return (
-//     <Container space='medium'>
-//       <VerticalSpace space='medium' />
-//       <Text>{props.greeting}</Text>
-//       <VerticalSpace space='medium' />
-//       <VerticalSpace space='medium' />
-//       {/* <Button></Button> */}
-//       <Text>{codeData}</Text>
-//     </Container>
-//   )
-// }
+class App extends React.Component {
+  textbox: HTMLInputElement
 
-// let codeData = "empty";
-// onmessage = event => {
-//   console.log("got this from the plugin code", event.data);
-//   if (!event.data.pluginMessage) {
-//     return;
-//   }
+  countRef = (element: HTMLInputElement) => {
+    if (element) element.value = '5'
+    this.textbox = element
+  }
 
-//   if (event.data.pluginMessage.type === "result") {
-//     codeData = event.data.pluginMessage.data;
-//   }
+  onCreate = () => {
+    const count = parseInt(this.textbox.value, 10)
+    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+  }
 
-//   console.log(`code data: ${codeData}`);
-// };
+  onCancel = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+  }
 
-// export default render(Plugin)
-// import * as ui from "./app"
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-// import App from './components/App';
-
-
-function App() {
-  return (
-    <div>text here</div>
-  )
+  render() {
+    return <div>
+      <h2>Rectangle Creator</h2>
+      <p>Count: <input ref={this.countRef} /></p>
+      <button id="create" onClick={this.onCreate}>Create</button>
+      <button onClick={this.onCancel}>Cancel</button>
+    </div>
+  }
 }
 
-export default ReactDOM.render(<App />, document.getElementById('react-page'));
+ReactDOM.render(<App />, document.getElementById('react-page'))

@@ -49,3 +49,4 @@ To open the developer console in the Figma desktop app, go to `Plugins` → `Dev
 
 - [Create Figma Plugin docs](https://github.com/yuanqing/create-figma-plugin#docs)
 - [Figma plugin API docs](https://figma.com/plugin-docs/api/)
+- [React plugin](https://www.figma.com/plugin-docs/bundling-react/)

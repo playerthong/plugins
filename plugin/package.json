@@ -9,12 +9,19 @@
     "figma-plugin"
   ],
   "license": "MIT",
-  "author": "softmarshmallow",
+  "author": "Bridged, INC. and softmarshmallow",
   "dependencies": {
     "@bridged.xyz/figma-flutter": "file:../flutter",
-    "@create-figma-plugin/ui": "^0.0.79",
     "@create-figma-plugin/utilities": "0.0.77",
-    "preact": "^10.4.8",
+    "react-figma": "latest",
+    "css-loader": "^3.1.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.38.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -24,11 +31,12 @@
     "@figma/plugin-typings": "^1.16.1",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "typescript": "^3.9.5"
+    "webpack-cli": "^3.3.6"
   },
   "scripts": {
     "build": "build-figma-plugin",
-    "watch": "build-figma-plugin --watch"
+    "watch": "build-figma-plugin --watch",
+    "webpack:watch": "webpack --watch"
   },
   "figma-plugin": {
     "id": "890215203225987901",
