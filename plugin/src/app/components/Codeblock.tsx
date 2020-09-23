@@ -1,26 +1,26 @@
-import { Component } from 'preact';
+// import { Component } from 'preact';
 
-export default class Codeblock extends Component {
-    codeData = "empty";
-    
-    render(){
-        return (
-            <p></p>
-        )
-    }
+// export default class Codeblock extends Component {
+//     codeData = "empty";
 
-    componentDidMount(){
-        onmessage = event => {
-        console.log("got this from the plugin code", event.data);
-        if (!event.data.pluginMessage) {
-            return;
-        }
+//     render(){
+//         return (
+//             <p></p>
+//         )
+//     }
 
-        if (event.data.pluginMessage.type === "result") {
-            this.codeData = event.data.pluginMessage.data;
-        }
+//     componentDidMount(){
+//         onmessage = event => {
+//         console.log("got this from the plugin code", event.data);
+//         if (!event.data.pluginMessage) {
+//             return;
+//         }
 
-        console.log(`code data: ${this.codeData}`);
-        };
-    }
-}
+//         if (event.data.pluginMessage.type === "result") {
+//             this.codeData = event.data.pluginMessage.data;
+//         }
+
+//         console.log(`code data: ${this.codeData}`);
+//         };
+//     }
+// }

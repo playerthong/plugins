@@ -1,9 +1,7 @@
 import * as React from 'react';
 // import '../styles/ui.css';
 
-declare function require(path: string): any;
-
-const App = ({}) => {
+const App = ({ }) => {
     const textbox = React.useRef<HTMLInputElement>(undefined);
 
     const countRef = React.useCallback((element: HTMLInputElement) => {
@@ -13,26 +11,24 @@ const App = ({}) => {
 
     const onCreate = React.useCallback(() => {
         const count = parseInt(textbox.current.value, 10);
-        parent.postMessage({pluginMessage: {type: 'create-rectangles', count}}, '*');
+        // parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
     }, []);
 
     const onCancel = React.useCallback(() => {
-        parent.postMessage({pluginMessage: {type: 'cancel'}}, '*');
+        // parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
     }, []);
 
     React.useEffect(() => {
         // This is how we read messages sent from the plugin controller
-        window.onmessage = (event) => {
-            const { type, message } = event.data.pluginMessage;
-            if (type === 'create-rectangles') {
-                console.log(`Figma Says: ${message}`);
-            };
-        }
+        // window.onmessage = (event) => {
+        //     const { type, message } = event.data.pluginMessage;
+        //     console.log(`Figma Says: ${message}`);
+        // }
     }, []);
 
     return (
         <div>
-            <img src={require('../assets/logo.svg')} />
+            {/* <img src={require('../assets/logo.svg')} /> */}
             <h2>Rectangle Creator</h2>
             <p>
                 Count: <input ref={countRef} />

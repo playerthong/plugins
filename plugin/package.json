@@ -31,7 +31,7 @@
     "watch": "build-figma-plugin --watch"
   },
   "figma-plugin": {
-    "id": "bridged-figma-plugin",
+    "id": "890215203225987901",
     "name": "Bridged",
     "main": "src/main.ts",
     "ui": "src/ui.tsx"
