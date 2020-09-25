@@ -1,4 +1,4 @@
-import { AltBlendMixin, AltLayoutMixin, AltSceneNode } from "../../altNodes/altMixins";
+import { AltBlendMixin, AltLayoutMixin, AltSceneNode } from "../../altnodes/altmixins";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
 /**

@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../../altNodes/altMixins";
+import { AltSceneNode } from "../../altnodes/altmixins";
 import { rgbTo8hex } from "../../utils/color";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 

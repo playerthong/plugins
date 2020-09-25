@@ -1,5 +1,5 @@
-import { AltFrameNode, AltGroupNode, AltSceneNode } from "./altMixins";
-import { convertGroupToFrame } from "./convertGroupToFrame";
+import { AltFrameNode, AltGroupNode, AltSceneNode } from "./altmixins";
+import { convertGroupToFrame } from "./convert-group-to-frame";
 
 /**
  * Add AutoLayout attributes if layout has items aligned (either vertically or horizontally).

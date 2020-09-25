@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../../altNodes/altMixins";
+import { AltSceneNode } from "../../altnodes/altmixins";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 import { commonPadding } from "../../common/common-padding";
 

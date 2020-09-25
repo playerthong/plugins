@@ -3,8 +3,8 @@ import {
   AltFrameNode,
   AltGroupNode,
   AltSceneNode,
-} from "./altMixins";
-import { convertToAutoLayout } from "./convertToAutoLayout";
+} from "./altmixins";
+import { convertToAutoLayout } from "./convert-to-auto-layout";
 
 /**
  * Identify all nodes that are inside Rectangles and transform those Rectangles into Frames containing those nodes.

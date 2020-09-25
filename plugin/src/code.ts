@@ -1,4 +1,4 @@
-import { convertIntoAltNodes } from "./altNodes/altConversion";
+import { convertIntoAltNodes } from "./altnodes/altconversion";
 import { flutterMain } from "./flutter/main";
 import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 

@@ -1,4 +1,4 @@
-import { convertNodesOnRectangle } from "./convertNodesOnRectangle";
+import { convertNodesOnRectangle } from "./convert-nodes-on-rect";
 import {
   AltSceneNode,
   AltRectangleNode,
@@ -13,8 +13,8 @@ import {
   AltRectangleCornerMixin,
   AltDefaultShapeMixin,
   AltEllipseNode,
-} from "./altMixins";
-import { convertToAutoLayout } from "./convertToAutoLayout";
+} from "./altmixins";
+import { convertToAutoLayout } from "./convert-to-auto-layout";
 
 export const convertSingleNodeToAlt = (
   node: SceneNode,

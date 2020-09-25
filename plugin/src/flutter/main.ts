@@ -4,9 +4,9 @@ import {
   AltRectangleNode,
   AltGroupNode,
   AltTextNode,
-} from "../altNodes/altMixins";
+} from "../altnodes/altmixins";
 import { FlutterDefaultBuilder } from "./flutter-defaultBuilder";
-import { AltSceneNode } from "../altNodes/altMixins";
+import { AltSceneNode } from "../altnodes/altmixins";
 import { FlutterTextBuilder } from "./flutter-text";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
 
