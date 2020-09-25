@@ -2,7 +2,6 @@
 
 ## Development guide
 
-*This plugin is built with [Create Figma Plugin](https://github.com/yuanqing/create-figma-plugin).*
 
 ### Pre-requisites
 
@@ -14,21 +13,11 @@
 First:
 
 ```
-$ npm install
+$ yarn install
 ```
 
-To build the plugin:
-
 ```
-$ npm run build
-```
-
-This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) file and a `build/` directory containing a JavaScript bundle for the plugin.
-
-To watch for code changes and rebuild the plugin automatically:
-
-```
-$ npm run watch
+$ yarn run webpack:watch
 ```
 
 ### Installing the plugin
@@ -50,3 +39,4 @@ To open the developer console in the Figma desktop app, go to `Plugins` → `Dev
 - [Create Figma Plugin docs](https://github.com/yuanqing/create-figma-plugin#docs)
 - [Figma plugin API docs](https://figma.com/plugin-docs/api/)
 - [React plugin](https://www.figma.com/plugin-docs/bundling-react/)
+- [Create Figma Plugin](https://github.com/yuanqing/create-figma-plugin)
