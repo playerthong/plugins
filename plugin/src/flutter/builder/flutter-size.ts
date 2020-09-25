@@ -1,6 +1,6 @@
 import { AltSceneNode } from "../../altNodes/altMixins";
-import { nodeWidthHeight } from "../../common/nodeWidthHeight";
-import { numToAutoFixed } from "../../common/numToAutoFixed";
+import { nodeWidthHeight } from "../../common/node-width-height";
+import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
 export const flutterSize = (node: AltSceneNode): string => {
   const size = nodeWidthHeight(node, false);

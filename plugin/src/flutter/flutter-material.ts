@@ -1,14 +1,14 @@
-import { flutterElevationAndShadowColor } from "./builderImpl/flutterShadow";
+import { flutterElevationAndShadowColor } from "./builder/flutter-shadow";
 import { AltSceneNode } from "../altNodes/altMixins";
-import { flutterSize } from "./builderImpl/flutterSize";
-import { flutterPadding } from "./builderImpl/flutterPadding";
-import { flutterShape, flutterBorderRadius } from "./builderImpl/flutterBorder";
+import { flutterSize } from "./builder/flutter-size";
+import { flutterPadding } from "./builder/flutter-padding";
+import { flutterShape, flutterBorderRadius } from "./builder/flutter-border";
 import {
   AltRectangleNode,
   AltEllipseNode,
   AltFrameNode,
 } from "../altNodes/altMixins";
-import { flutterColor } from "./builderImpl/flutterColor";
+import { flutterColor } from "./builder/flutter-color";
 
 // https://api.flutter.dev/flutter/material/Material-class.html
 export const flutterMaterial = (

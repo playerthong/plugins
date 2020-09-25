@@ -1,6 +1,6 @@
 import { convertIntoAltNodes } from "./altNodes/altConversion";
-import { flutterMain } from "./flutter/flutterMain";
-import { retrieveFlutterColors } from "./flutter/retrieveUI/retrieveColors";
+import { flutterMain } from "./flutter/main";
+import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 
 
 let parentId: string;

@@ -1,11 +1,11 @@
 import { AltGroupNode } from "../altNodes/altMixins";
-import { retrieveFill } from "../common/retrieveFill";
-import { flutterPosition } from "./builderImpl/flutterPosition";
+import { retrieveFill } from "../common/retrieve-fill";
+import { flutterPosition } from "./builder/flutter-position";
 import {
   flutterVisibility,
   flutterOpacity,
   flutterRotation,
-} from "./builderImpl/flutterBlend";
+} from "./builder/flutter-blend";
 import {
   AltSceneNode,
   AltRectangleNode,
@@ -13,8 +13,8 @@ import {
   AltFrameNode,
 } from "../altNodes/altMixins";
 
-import { flutterContainer } from "./flutterContainer";
-import { flutterMaterial } from "./flutterMaterial";
+import { flutterContainer } from "./flutter-container";
+import { flutterMaterial } from "./flutter-material";
 
 export class FlutterDefaultBuilder {
   child: string;

@@ -1,7 +1,7 @@
 import { AltSceneNode } from "../../altNodes/altMixins";
-import { commonPosition } from "../../common/commonPosition";
-import { numToAutoFixed } from "../../common/numToAutoFixed";
-import { parentCoordinates } from "../../common/parentCoordinates";
+import { commonPosition } from "../../common/common-osition";
+import { numToAutoFixed } from "../../common/num-to-auto-fixed";
+import { parentCoordinates } from "../../common/parent-coordinates";
 
 export const flutterPosition = (
   node: AltSceneNode,

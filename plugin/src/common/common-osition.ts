@@ -1,5 +1,5 @@
 import { AltSceneNode } from "../altNodes/altMixins";
-import { parentCoordinates } from "./parentCoordinates";
+import { parentCoordinates } from "./parent-coordinates";
 
 type position =
   | ""

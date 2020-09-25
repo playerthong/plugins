@@ -1,6 +1,6 @@
 import { AltSceneNode } from "../../altNodes/altMixins";
-import { numToAutoFixed } from "../../common/numToAutoFixed";
-import { commonPadding } from "../../common/commonPadding";
+import { numToAutoFixed } from "../../common/num-to-auto-fixed";
+import { commonPadding } from "../../common/common-padding";
 
 // Add padding if necessary!
 // This must happen before Stack or after the Positioned, but not before.

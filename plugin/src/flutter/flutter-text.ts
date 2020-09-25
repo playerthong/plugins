@@ -1,9 +1,9 @@
-import { commonLetterSpacing } from "../common/commonTextHeightSpacing";
-import { FlutterDefaultBuilder } from "./flutterDefaultBuilder";
+import { commonLetterSpacing } from "../common/common-text-height-spacing";
+import { FlutterDefaultBuilder } from "./flutter-defaultBuilder";
 import { AltTextNode } from "../altNodes/altMixins";
 import { convertFontWeight } from "../utils/text-convert";
-import { flutterColor } from "./builderImpl/flutterColor";
-import { numToAutoFixed } from "../common/numToAutoFixed";
+import { flutterColor } from "./builder/flutter-color";
+import { numToAutoFixed } from "../common/num-to-auto-fixed";
 
 export class FlutterTextBuilder extends FlutterDefaultBuilder {
   constructor(optChild: string = "") {

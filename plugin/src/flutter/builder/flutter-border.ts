@@ -1,6 +1,6 @@
 import { AltSceneNode, AltRectangleNode, AltEllipseNode, AltFrameNode } from "../../altNodes/altMixins";
-import { flutterColor } from "./flutterColor";
-import { numToAutoFixed } from "../../common/numToAutoFixed";
+import { flutterColor } from "./flutter-color";
+import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
 // generate the border, when it exists
 export const flutterBorder = (node: AltSceneNode): string => {
@@ -51,13 +51,13 @@ export const flutterBorderRadius = (
 
   return node.cornerRadius !== figma.mixed
     ? `borderRadius: BorderRadius.circular(${numToAutoFixed(
-        node.cornerRadius
-      )}), `
+      node.cornerRadius
+    )}), `
     : `borderRadius: BorderRadius.only(topLeft: ${numToAutoFixed(
-        node.topLeftRadius
-      )}, topRight: ${numToAutoFixed(
-        node.topRightRadius
-      )}, bottomLeft: ${numToAutoFixed(
-        node.bottomLeftRadius
-      )}, bottomRight: ${numToAutoFixed(node.bottomRightRadius)}), `;
+      node.topLeftRadius
+    )}, topRight: ${numToAutoFixed(
+      node.topRightRadius
+    )}, bottomLeft: ${numToAutoFixed(
+      node.bottomLeftRadius
+    )}, bottomRight: ${numToAutoFixed(node.bottomRightRadius)}), `;
 };

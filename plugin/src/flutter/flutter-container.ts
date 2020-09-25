@@ -2,16 +2,16 @@ import { AltGroupNode } from "../altNodes/altMixins";
 import {
   flutterBorderRadius,
   flutterBorder,
-} from "./builderImpl/flutterBorder";
-import { flutterSize } from "./builderImpl/flutterSize";
+} from "./builder/flutter-border";
+import { flutterSize } from "./builder/flutter-size";
 import {
   AltRectangleNode,
   AltEllipseNode,
   AltFrameNode,
 } from "../altNodes/altMixins";
-import { flutterPadding } from "./builderImpl/flutterPadding";
-import { flutterBoxShadow } from "./builderImpl/flutterShadow";
-import { flutterBoxDecorationColor } from "./builderImpl/flutterColor";
+import { flutterPadding } from "./builder/flutter-padding";
+import { flutterBoxShadow } from "./builder/flutter-shadow";
+import { flutterBoxDecorationColor } from "./builder/flutter-color";
 
 // properties named propSomething always take care of ","
 // sometimes a property might not exist, so it doesn't add ","

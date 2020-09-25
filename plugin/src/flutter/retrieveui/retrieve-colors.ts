@@ -1,6 +1,6 @@
 import { AltSceneNode } from "../../altNodes/altMixins";
-import { rgbTo6hex } from "../../common/color";
-import { retrieveFill } from "../../common/retrieveFill";
+import { rgbTo6hex } from "../../utils/color";
+import { retrieveFill } from "../../common/retrieve-fill";
 
 export const retrieveFlutterColors = (
   sceneNode: Array<AltSceneNode>

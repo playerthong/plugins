@@ -1,5 +1,5 @@
-import { rgbTo8hex, gradientAngle } from "../../common/color";
-import { retrieveFill } from "../../common/retrieveFill";
+import { rgbTo8hex, gradientAngle } from "../../utils/color";
+import { retrieveFill } from "../../common/retrieve-fill";
 import { nearestValue } from "../../utils/convert";
 
 /**

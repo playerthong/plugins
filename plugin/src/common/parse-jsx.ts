@@ -1,4 +1,4 @@
-import { numToAutoFixed } from "./numToAutoFixed";
+import { numToAutoFixed } from "./num-to-auto-fixed";
 
 export const parseNumJSX = (
   std_str: string,

@@ -1,5 +1,5 @@
 import { AltBlendMixin, AltLayoutMixin, AltSceneNode } from "../../altNodes/altMixins";
-import { numToAutoFixed } from "../../common/numToAutoFixed";
+import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
 /**
  * https://api.flutter.dev/flutter/widgets/Opacity-class.html
