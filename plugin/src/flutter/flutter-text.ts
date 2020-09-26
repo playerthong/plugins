@@ -1,6 +1,6 @@
 import { commonLetterSpacing } from "../common/common-text-height-spacing";
 import { FlutterDefaultBuilder } from "./flutter-defaultBuilder";
-import { AltTextNode } from "../altnodes/altmixins";
+import { AltTextNode } from "../alt-nodes/altmixins";
 import { convertFontWeight } from "../utils/text-convert";
 import { flutterColor } from "./builder/flutter-color";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
@@ -25,19 +25,17 @@ export class FlutterTextBuilder extends FlutterDefaultBuilder {
   }
 }
 
-export const makeTextComponent = (node: AltTextNode): string => {
+export function makeTextComponent(node: AltTextNode): string {
   // only undefined in testing
-  let alignHorizontal =
-    node.textAlignHorizontal?.toString()?.toLowerCase() ?? "left";
+  let alignHorizontal = node.textAlignHorizontal?.toString()?.toLowerCase() ?? "left";
   alignHorizontal =
     alignHorizontal === "justified" ? "justify" : alignHorizontal;
 
   // todo if layoutAlign !== MIN, Text will be wrapped by Align
   // if alignHorizontal is LEFT, don't do anything because that is native
-  const textAlign =
-    alignHorizontal !== "left"
-      ? `textAlign: TextAlign.${alignHorizontal}, `
-      : "";
+  const textAlign = alignHorizontal !== "left"
+    ? `textAlign: TextAlign.${alignHorizontal}, `
+    : "";
 
   let text = node.characters;
   if (node.textCase === "LOWER") {
@@ -48,19 +46,17 @@ export const makeTextComponent = (node: AltTextNode): string => {
   // else if (node.textCase === "TITLE") {
   // TODO this
   // }
-
   const textStyle = getTextStyle(node);
 
   const style = textStyle ? `style: TextStyle(${textStyle}), ` : "";
 
   const splittedChars = text.split("\n");
-  const charsWithLineBreak =
-    splittedChars.length > 1 ? splittedChars.join("\\n") : text;
+  const charsWithLineBreak = splittedChars.length > 1 ? splittedChars.join("\\n") : text;
 
   return `Text("${charsWithLineBreak}", ${textAlign}${style}), `;
-};
+}
 
-export const getTextStyle = (node: AltTextNode): string => {
+export function getTextStyle(node: AltTextNode): string {
   // example: text-md
   let styleBuilder = "";
 
@@ -74,10 +70,8 @@ export const getTextStyle = (node: AltTextNode): string => {
     styleBuilder += "decoration: TextDecoration.underline, ";
   }
 
-  if (
-    node.fontName !== figma.mixed &&
-    node.fontName.style.toLowerCase().match("italic")
-  ) {
+  if (node.fontName !== figma.mixed &&
+    node.fontName.style.toLowerCase().match("italic")) {
     styleBuilder += "fontStyle: FontStyle.italic, ";
   }
 
@@ -98,12 +92,10 @@ export const getTextStyle = (node: AltTextNode): string => {
   }
 
   return styleBuilder;
-};
+}
 
-export const wrapTextAutoResize = (
-  node: AltTextNode,
-  child: string
-): string => {
+export function wrapTextAutoResize(node: AltTextNode,
+  child: string): string {
   if (node.textAutoResize === "NONE") {
     // = instead of += because we want to replace it
     return `SizedBox(width: ${numToAutoFixed(
@@ -116,4 +108,4 @@ export const wrapTextAutoResize = (
   }
 
   return child;
-};
+}

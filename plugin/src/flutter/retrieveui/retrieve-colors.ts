@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../../altnodes/altmixins";
+import { AltSceneNode } from "../../alt-nodes/altmixins";
 import { rgbTo6hex } from "../../utils/color";
 import { retrieveFill } from "../../common/retrieve-fill";
 

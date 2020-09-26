@@ -1,6 +1,6 @@
 import { AltSceneNode, AltFrameNode, AltGroupNode } from "./altmixins";
 
-export const convertGroupToFrame = (node: AltGroupNode): AltFrameNode => {
+export function convertGroupToFrame(node: AltGroupNode): AltFrameNode {
   const newNode = new AltFrameNode();
 
   newNode.id = node.id;
@@ -37,9 +37,8 @@ export const convertGroupToFrame = (node: AltGroupNode): AltFrameNode => {
 
   // don't need to take care of newNode.parent.children because method is recursive.
   // .children =... calls convertGroupToFrame() which returns the correct node
-
   return newNode;
-};
+}
 
 /**
  * Recursively update all children's X and Y value from a Group.
@@ -48,7 +47,7 @@ export const convertGroupToFrame = (node: AltGroupNode): AltFrameNode => {
  * This must be called with a GroupNode. Param accepts anything because of the recurison.
  * Result of a Group with x,y = (250, 250) and child at (260, 260) must be child at (10, 10)
  */
-const updateChildrenXY = (node: AltSceneNode): AltSceneNode => {
+function updateChildrenXY(node: AltSceneNode): AltSceneNode {
   // the second condition is necessary, so it can convert the root
   if (node.type === "GROUP") {
     node.children.forEach((d) => {
@@ -60,4 +59,4 @@ const updateChildrenXY = (node: AltSceneNode): AltSceneNode => {
   } else {
     return node;
   }
-};
+}

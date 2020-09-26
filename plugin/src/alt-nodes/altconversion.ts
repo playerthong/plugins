@@ -15,18 +15,15 @@ import {
   AltEllipseNode,
 } from "./altmixins";
 import { convertToAutoLayout } from "./convert-to-auto-layout";
+import { notEmpty } from "../utils/general";
 
-export const convertSingleNodeToAlt = (
-  node: SceneNode,
-  parent: AltFrameNode | AltGroupNode | null = null
-): AltSceneNode => {
+export function convertSingleNodeToAlt(node: SceneNode,
+  parent: AltFrameNode | AltGroupNode | null = null): AltSceneNode {
   return convertIntoAltNodes([node], parent)[0];
-};
+}
 
-export const frameNodeToAlt = (
-  node: FrameNode | InstanceNode | ComponentNode,
-  altParent: AltFrameNode | AltGroupNode | null = null
-): AltRectangleNode | AltFrameNode | AltGroupNode => {
+export function frameNodeToAlt(node: FrameNode | InstanceNode | ComponentNode,
+  altParent: AltFrameNode | AltGroupNode | null = null): AltRectangleNode | AltFrameNode | AltGroupNode {
   if (node.children.length === 0) {
     // if it has no children, convert frame to rectangle
     return frameToRectangleNode(node, altParent);
@@ -49,13 +46,11 @@ export const frameNodeToAlt = (
   altNode.children = convertIntoAltNodes(node.children, altNode);
 
   return convertToAutoLayout(convertNodesOnRectangle(altNode));
-};
+}
 
 // auto convert Frame to Rectangle when Frame has no Children
-const frameToRectangleNode = (
-  node: FrameNode | InstanceNode | ComponentNode,
-  altParent: AltFrameNode | AltGroupNode | null
-): AltRectangleNode => {
+function frameToRectangleNode(node: FrameNode | InstanceNode | ComponentNode,
+  altParent: AltFrameNode | AltGroupNode | null): AltRectangleNode {
   const newNode = new AltRectangleNode();
 
   newNode.id = node.id;
@@ -69,12 +64,10 @@ const frameToRectangleNode = (
   convertRectangleCorner(newNode, node);
   convertCorner(newNode, node);
   return newNode;
-};
+}
 
-export const convertIntoAltNodes = (
-  sceneNode: ReadonlyArray<SceneNode>,
-  altParent: AltFrameNode | AltGroupNode | null = null
-): Array<AltSceneNode> => {
+export function convertIntoAltNodes(sceneNode: ReadonlyArray<SceneNode>,
+  altParent: AltFrameNode | AltGroupNode | null = null): Array<AltSceneNode> {
   const mapped: Array<AltSceneNode | null> = sceneNode.map(
     (node: SceneNode) => {
       if (node.type === "RECTANGLE" || node.type === "ELLIPSE") {
@@ -97,11 +90,9 @@ export const convertIntoAltNodes = (
         convertCorner(altNode, node);
 
         return altNode;
-      } else if (
-        node.type === "FRAME" ||
+      } else if (node.type === "FRAME" ||
         node.type === "INSTANCE" ||
-        node.type === "COMPONENT"
-      ) {
+        node.type === "COMPONENT") {
         return frameNodeToAlt(node, altParent);
       } else if (node.type === "GROUP") {
         if (node.children.length === 1 && node.visible !== false) {
@@ -164,18 +155,18 @@ export const convertIntoAltNodes = (
   );
 
   return mapped.filter(notEmpty);
-};
+}
 
-const convertLayout = (altNode: AltLayoutMixin, node: LayoutMixin) => {
+function convertLayout(altNode: AltLayoutMixin, node: LayoutMixin) {
   altNode.x = node.x;
   altNode.y = node.y;
   altNode.width = node.width;
   altNode.height = node.height;
   altNode.rotation = node.rotation;
   altNode.layoutAlign = node.layoutAlign;
-};
+}
 
-const convertFrame = (altNode: AltFrameMixin, node: DefaultFrameMixin) => {
+function convertFrame(altNode: AltFrameMixin, node: DefaultFrameMixin) {
   altNode.layoutMode = node.layoutMode;
   altNode.counterAxisSizingMode = node.counterAxisSizingMode;
 
@@ -189,9 +180,9 @@ const convertFrame = (altNode: AltFrameMixin, node: DefaultFrameMixin) => {
   altNode.gridStyleId = node.gridStyleId;
   altNode.clipsContent = node.clipsContent;
   altNode.guides = node.guides;
-};
+}
 
-const convertGeometry = (altNode: AltGeometryMixin, node: GeometryMixin) => {
+function convertGeometry(altNode: AltGeometryMixin, node: GeometryMixin) {
   altNode.fills = node.fills;
   altNode.strokes = node.strokes;
   altNode.strokeWeight = node.strokeWeight;
@@ -202,12 +193,10 @@ const convertGeometry = (altNode: AltGeometryMixin, node: GeometryMixin) => {
   altNode.dashPattern = node.dashPattern;
   altNode.fillStyleId = node.fillStyleId;
   altNode.strokeStyleId = node.strokeStyleId;
-};
+}
 
-const convertBlend = (
-  altNode: AltBlendMixin,
-  node: BlendMixin & SceneNodeMixin
-) => {
+function convertBlend(altNode: AltBlendMixin,
+  node: BlendMixin & SceneNodeMixin) {
   altNode.opacity = node.opacity;
   altNode.blendMode = node.blendMode;
   altNode.isMask = node.isMask;
@@ -215,12 +204,10 @@ const convertBlend = (
   altNode.effectStyleId = node.effectStyleId;
 
   altNode.visible = node.visible;
-};
+}
 
-const convertDefaultShape = (
-  altNode: AltDefaultShapeMixin,
-  node: DefaultShapeMixin
-) => {
+function convertDefaultShape(altNode: AltDefaultShapeMixin,
+  node: DefaultShapeMixin) {
   // opacity, visible
   convertBlend(altNode, node);
 
@@ -229,24 +216,22 @@ const convertDefaultShape = (
 
   // width, x, y
   convertLayout(altNode, node);
-};
+}
 
-const convertCorner = (altNode: AltCornerMixin, node: CornerMixin) => {
+function convertCorner(altNode: AltCornerMixin, node: CornerMixin) {
   altNode.cornerRadius = node.cornerRadius;
   altNode.cornerSmoothing = node.cornerSmoothing;
-};
+}
 
-const convertRectangleCorner = (
-  altNode: AltRectangleCornerMixin,
-  node: RectangleCornerMixin
-) => {
+function convertRectangleCorner(altNode: AltRectangleCornerMixin,
+  node: RectangleCornerMixin) {
   altNode.topLeftRadius = node.topLeftRadius;
   altNode.topRightRadius = node.topRightRadius;
   altNode.bottomLeftRadius = node.bottomLeftRadius;
   altNode.bottomRightRadius = node.bottomRightRadius;
-};
+}
 
-const convertIntoAltText = (altNode: AltTextNode, node: TextNode) => {
+function convertIntoAltText(altNode: AltTextNode, node: TextNode) {
   altNode.textAlignHorizontal = node.textAlignHorizontal;
   altNode.textAlignVertical = node.textAlignVertical;
   altNode.paragraphIndent = node.paragraphIndent;
@@ -259,8 +244,6 @@ const convertIntoAltText = (altNode: AltTextNode, node: TextNode) => {
   altNode.textAutoResize = node.textAutoResize;
   altNode.characters = node.characters;
   altNode.lineHeight = node.lineHeight;
-};
-
-function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
-  return value !== null && value !== undefined;
 }
+
+

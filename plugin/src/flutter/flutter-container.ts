@@ -1,4 +1,4 @@
-import { AltGroupNode } from "../altnodes/altmixins";
+import { AltGroupNode } from "../alt-nodes/altmixins";
 import {
   flutterBorderRadius,
   flutterBorder,
@@ -8,17 +8,15 @@ import {
   AltRectangleNode,
   AltEllipseNode,
   AltFrameNode,
-} from "../altnodes/altmixins";
+} from "../alt-nodes/altmixins";
 import { flutterPadding } from "./builder/flutter-padding";
 import { flutterBoxShadow } from "./builder/flutter-shadow";
 import { flutterBoxDecorationColor } from "./builder/flutter-color";
 
 // properties named propSomething always take care of ","
 // sometimes a property might not exist, so it doesn't add ","
-export const flutterContainer = (
-  node: AltRectangleNode | AltEllipseNode | AltFrameNode | AltGroupNode,
-  child: string
-): string => {
+export function flutterContainer(node: AltRectangleNode | AltEllipseNode | AltFrameNode | AltGroupNode,
+  child: string): string {
   // ignore the view when size is zero or less
   // while technically it shouldn't get less than 0, due to rounding errors,
   // it can get to values like: -0.000004196293048153166
@@ -31,7 +29,6 @@ export const flutterContainer = (
   const propWidthHeight = flutterSize(node);
 
   // todo Image, Gradient & multiple fills
-
   /// if child is empty, propChild is empty
   const propChild = child ? `child: ${child}` : "";
 
@@ -50,11 +47,9 @@ export const flutterContainer = (
   } else {
     return child;
   }
-};
+}
 
-const getBoxDecoration = (
-  node: AltRectangleNode | AltEllipseNode | AltFrameNode
-): string => {
+function getBoxDecoration(node: AltRectangleNode | AltEllipseNode | AltFrameNode): string {
   const propBackgroundColor = flutterBoxDecorationColor(node.fills);
   const propBorder = flutterBorder(node);
   const propBoxShadow = flutterBoxShadow(node);
@@ -71,4 +66,4 @@ const getBoxDecoration = (
     propBackgroundColor[0] === "g"
     ? `decoration: BoxDecoration(${propBorderRadius}${propShape}${propBorder}${propBoxShadow}${propBackgroundColor}), `
     : `${propBackgroundColor}`;
-};
+}

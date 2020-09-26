@@ -4,20 +4,20 @@ import {
   AltRectangleNode,
   AltGroupNode,
   AltTextNode,
-} from "../altnodes/altmixins";
+} from "../alt-nodes/altmixins";
 import { FlutterDefaultBuilder } from "./flutter-defaultBuilder";
-import { AltSceneNode } from "../altnodes/altmixins";
+import { AltSceneNode } from "../alt-nodes/altmixins";
 import { FlutterTextBuilder } from "./flutter-text";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
+import { mostFrequent } from "../utils/array-utils";
 
 let parentId = "";
 let material = true;
 
-export const flutterMain = (
-  sceneNode: Array<AltSceneNode>,
+/// MAIN
+export function flutterMain(sceneNode: Array<AltSceneNode>,
   parentIdSrc: string = "",
-  isMaterial: boolean = false
-): string => {
+  isMaterial: boolean = false): string {
   parentId = parentIdSrc;
   material = isMaterial;
 
@@ -31,12 +31,10 @@ export const flutterMain = (
   result = result.slice(0, -1);
 
   return result;
-};
+}
 
 // todo lint idea: replace BorderRadius.only(topleft: 8, topRight: 8) with BorderRadius.horizontal(8)
-const flutterWidgetGenerator = (
-  sceneNode: ReadonlyArray<AltSceneNode>
-): string => {
+function flutterWidgetGenerator(sceneNode: ReadonlyArray<AltSceneNode>): string {
   let comp = "";
   const sceneLen = sceneNode.length;
 
@@ -44,6 +42,8 @@ const flutterWidgetGenerator = (
     if (node.type === "RECTANGLE" || node.type === "ELLIPSE") {
       comp += flutterContainer(node, "");
     }
+
+
     //  else if (node.type === "VECTOR") {
     // comp = flutterVector(node);
     // }
@@ -61,19 +61,17 @@ const flutterWidgetGenerator = (
   });
 
   return comp;
-};
+}
 
-const flutterGroup = (node: AltGroupNode): string => {
+function flutterGroup(node: AltGroupNode): string {
   return flutterContainer(
     node,
     `Stack(children:[${flutterWidgetGenerator(node.children)}],),`
   );
-};
+}
 
-const flutterContainer = (
-  node: AltFrameNode | AltGroupNode | AltRectangleNode | AltEllipseNode,
-  child: string
-): string => {
+function flutterContainer(node: AltFrameNode | AltGroupNode | AltRectangleNode | AltEllipseNode,
+  child: string): string {
   const builder = new FlutterDefaultBuilder(child);
 
   builder
@@ -82,9 +80,9 @@ const flutterContainer = (
     .position(node, parentId);
 
   return builder.child;
-};
+}
 
-const flutterText = (node: AltTextNode): string => {
+function flutterText(node: AltTextNode): string {
   const builder = new FlutterTextBuilder();
 
   builder
@@ -94,9 +92,9 @@ const flutterText = (node: AltTextNode): string => {
     .position(node, parentId);
 
   return builder.child;
-};
+}
 
-const flutterFrame = (node: AltFrameNode): string => {
+function flutterFrame(node: AltFrameNode): string {
   const children = flutterWidgetGenerator(node.children);
 
   if (node.children.length === 1) {
@@ -110,9 +108,9 @@ const flutterFrame = (node: AltFrameNode): string => {
     // children needs to be absolute
     return flutterContainer(node, `Stack(children:[${children}],),`);
   }
-};
+}
 
-const makeRowColumn = (node: AltFrameNode, children: string): string => {
+function makeRowColumn(node: AltFrameNode, children: string): string {
   // ROW or COLUMN
   const rowOrColumn = node.layoutMode === "HORIZONTAL" ? "Row" : "Column";
 
@@ -120,28 +118,17 @@ const makeRowColumn = (node: AltFrameNode, children: string): string => {
 
   const layoutAlign = mostFreq === "MIN" ? "start" : "center";
 
-  const crossAxisColumn =
-    rowOrColumn === "Column"
-      ? `crossAxisAlignment: CrossAxisAlignment.${layoutAlign}, `
-      : "";
+  const crossAxisColumn = rowOrColumn === "Column"
+    ? `crossAxisAlignment: CrossAxisAlignment.${layoutAlign}, `
+    : "";
 
   const mainAxisSize = "mainAxisSize: MainAxisSize.min, ";
 
   return `${rowOrColumn}(${mainAxisSize}${crossAxisColumn}children:[${children}], ), `;
-};
+}
 
-// https://stackoverflow.com/a/20762713
-export const mostFrequent = (arr: Array<string>): string | undefined => {
-  return arr
-    .sort(
-      (a, b) =>
-        arr.filter((v) => v === a).length - arr.filter((v) => v === b).length
-    )
-    .pop();
-};
 
 // TODO Vector support in Flutter is complicated. Currently, AltConversion converts it in a Rectangle.
-
 const addSpacingIfNeeded = (
   node: AltSceneNode,
   index: number,

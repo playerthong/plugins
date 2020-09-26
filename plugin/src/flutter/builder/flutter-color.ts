@@ -5,9 +5,7 @@ import { nearestValue } from "../../utils/convert";
 /**
  * Retrieve the SOLID color for Flutter when existent, otherwise ""
  */
-export const flutterColor = (
-  fills: ReadonlyArray<Paint> | PluginAPI["mixed"]
-): string => {
+export function flutterColor(fills: ReadonlyArray<Paint> | PluginAPI["mixed"]): string {
   const fill = retrieveFill(fills);
 
   if (fill?.type === "SOLID") {
@@ -17,11 +15,9 @@ export const flutterColor = (
   }
 
   return "";
-};
+}
 
-export const flutterBoxDecorationColor = (
-  fills: ReadonlyArray<Paint> | PluginAPI["mixed"]
-): string => {
+export function flutterBoxDecorationColor(fills: ReadonlyArray<Paint> | PluginAPI["mixed"]): string {
   const fill = retrieveFill(fills);
 
   if (fill?.type === "SOLID") {
@@ -40,9 +36,9 @@ export const flutterBoxDecorationColor = (
   }
 
   return "";
-};
+}
 
-const gradientDirection = (angle: number): string => {
+function gradientDirection(angle: number): string {
   switch (nearestValue(angle, [-180, -135, -90, -45, 0, 45, 90, 135, 180])) {
     case 0:
       return "begin: Alignment.centerLeft, end: Alignment.centerRight";
@@ -62,9 +58,9 @@ const gradientDirection = (angle: number): string => {
       // 180 and -180
       return "begin: Alignment.centerRight, end: Alignment.centerLeft";
   }
-};
+}
 
-const rgbaToFlutterColor = (color: RGB, opacity: number): string => {
+function rgbaToFlutterColor(color: RGB, opacity: number): string {
   // todo use Colors.black.opacity()
   if (color.r + color.g + color.b === 0 && opacity === 1) {
     return "Colors.black";
@@ -75,4 +71,4 @@ const rgbaToFlutterColor = (color: RGB, opacity: number): string => {
   }
 
   return `Color(0x${rgbTo8hex(color, opacity)})`;
-};
+}

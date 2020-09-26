@@ -1,4 +1,4 @@
-import { AltFrameMixin, AltDefaultShapeMixin } from "../altnodes/altmixins";
+import { AltFrameMixin, AltDefaultShapeMixin } from "../alt-nodes/altmixins";
 
 type paddingType = {
   horizontal: number;

@@ -1,4 +1,5 @@
-# bridged-figma-plugin
+# bridged-figma-plugin (flutter code builder from figma design)
+> a figma to flutter code exporter
 
 ## Development guide
 

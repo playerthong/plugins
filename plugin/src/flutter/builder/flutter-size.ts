@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../../altnodes/altmixins";
+import { AltSceneNode } from "../../alt-nodes/altmixins";
 import { nodeWidthHeight } from "../../common/node-width-height";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 

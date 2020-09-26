@@ -1,8 +1,8 @@
-import { AltSceneNode } from "../../altnodes/altmixins";
+import { AltSceneNode } from "../../alt-nodes/altmixins";
 import { rgbTo8hex } from "../../utils/color";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
-export const flutterBoxShadow = (node: AltSceneNode): string => {
+export function flutterBoxShadow(node: AltSceneNode): string {
   let propBoxShadow = "";
   if (node.effects?.length > 0) {
     const dropShadow: Array<ShadowEffect> = node.effects.filter(
@@ -26,11 +26,9 @@ export const flutterBoxShadow = (node: AltSceneNode): string => {
     // TODO inner shadow, layer blur
   }
   return propBoxShadow;
-};
+}
 
-export const flutterElevationAndShadowColor = (
-  node: AltSceneNode
-): [string, string] => {
+export function flutterElevationAndShadowColor(node: AltSceneNode): [string, string] {
   let elevation = "";
   let shadowColor = "";
 
@@ -49,4 +47,4 @@ export const flutterElevationAndShadowColor = (
   }
 
   return [elevation, shadowColor];
-};
+}

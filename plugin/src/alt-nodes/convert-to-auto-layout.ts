@@ -8,16 +8,12 @@ import { convertGroupToFrame } from "./convert-group-to-frame";
  * If it finds, add the correct attributes. When original node is a Group,
  * convert it to Frame before adding the attributes. Group doesn't have AutoLayout properties.
  */
-export const convertToAutoLayout = (
-  node: AltFrameNode | AltGroupNode
-): AltFrameNode | AltGroupNode => {
+export function convertToAutoLayout(node: AltFrameNode | AltGroupNode): AltFrameNode | AltGroupNode {
   // only go inside when AutoLayout is not already set.
-  if (
-    ("layoutMode" in node &&
-      node.layoutMode === "NONE" &&
-      node.children.length > 0) ||
-    node.type === "GROUP"
-  ) {
+  if (("layoutMode" in node &&
+    node.layoutMode === "NONE" &&
+    node.children.length > 0) ||
+    node.type === "GROUP") {
     const [orderedChildren, direction, itemSpacing] = reorderChildrenIfAligned(
       node.children
     );
@@ -65,13 +61,14 @@ export const convertToAutoLayout = (
   }
 
   return node;
-};
+}
 
 /**
  * Standard average calculation. Length must be > 0
  */
-const average = (arr: Array<number>) =>
-  arr.reduce((p, c) => p + c, 0) / arr.length;
+function average(arr: Array<number>) {
+  return arr.reduce((p, c) => p + c, 0) / arr.length;
+}
 
 /**
  * Check the average of children positions against this threshold;
@@ -83,9 +80,7 @@ const threshold = -2;
 /**
  * Verify if children are sorted by their relative position and return them sorted, if identified.
  */
-const reorderChildrenIfAligned = (
-  children: ReadonlyArray<AltSceneNode>
-): [Array<AltSceneNode>, "HORIZONTAL" | "VERTICAL" | "NONE", number] => {
+function reorderChildrenIfAligned(children: ReadonlyArray<AltSceneNode>): [Array<AltSceneNode>, "HORIZONTAL" | "VERTICAL" | "NONE", number] {
   if (children.length === 1) {
     return [[...children], "NONE", 0];
   }
@@ -105,7 +100,7 @@ const reorderChildrenIfAligned = (
   }
 
   return [updateChildren, "NONE", 0];
-};
+}
 
 /**
  * Checks if layout is horizontally or vertically aligned.
@@ -113,9 +108,7 @@ const reorderChildrenIfAligned = (
  * If no correspondence is found, returns "NONE".
  * In a previous version, it used a "standard deviation", but "average" performed better.
  */
-const shouldVisit = (
-  children: ReadonlyArray<AltSceneNode>
-): ["HORIZONTAL" | "VERTICAL" | "NONE", number] => {
+function shouldVisit(children: ReadonlyArray<AltSceneNode>): ["HORIZONTAL" | "VERTICAL" | "NONE", number] {
   const intervalY = calculateInterval(children, "y");
   const intervalX = calculateInterval(children, "x");
 
@@ -135,7 +128,7 @@ const shouldVisit = (
     return ["HORIZONTAL", avgX];
   }
   return ["VERTICAL", avgY];
-};
+}
 
 // todo improve this method to try harder. Idea: maybe use k-means or hierarchical cluster?
 
@@ -143,10 +136,8 @@ const shouldVisit = (
  * This function calculates the distance (interval) between items.
  * Example: for [item]--8--[item]--8--[item], the result is [8, 8]
  */
-const calculateInterval = (
-  children: ReadonlyArray<AltSceneNode>,
-  xOrY: "x" | "y"
-): Array<number> => {
+function calculateInterval(children: ReadonlyArray<AltSceneNode>,
+  xOrY: "x" | "y"): Array<number> {
   const hOrW: "width" | "height" = xOrY === "x" ? "width" : "height";
 
   // sort children based on X or Y values
@@ -160,20 +151,18 @@ const calculateInterval = (
     interval.push(sorted[i + 1][xOrY] - (sorted[i][xOrY] + sorted[i][hOrW]));
   }
   return interval;
-};
+}
 
 /**
  * Calculate the Padding.
  * This is very verbose, but also more performant than calculating them independently.
  */
-const detectAutoLayoutPadding = (
-  node: AltFrameNode
-): {
+function detectAutoLayoutPadding(node: AltFrameNode): {
   left: number;
   right: number;
   top: number;
   bottom: number;
-} => {
+} {
   // this need to be run before VERTICAL or HORIZONTAL
   if (node.children.length === 1) {
     // left padding is first element's y value
@@ -217,7 +206,6 @@ const detectAutoLayoutPadding = (
     };
   } else {
     // node.layoutMode === "HORIZONTAL"
-
     // left padding is first element's y value
     const left = node.children[0].x;
 
@@ -241,16 +229,14 @@ const detectAutoLayoutPadding = (
       bottom: bottom,
     };
   }
-};
+}
 
 /**
  * Detect if children are aligned at the start, end or center of parent.
  * Result is the layoutAlign attribute
  */
-const layoutAlignInChild = (
-  node: AltSceneNode,
-  parentNode: AltFrameNode
-): "MIN" | "CENTER" | "MAX" | "STRETCH" => {
+function layoutAlignInChild(node: AltSceneNode,
+  parentNode: AltFrameNode): "MIN" | "CENTER" | "MAX" | "STRETCH" {
   // parentNode.layoutMode can't be NONE.
   if (parentNode.layoutMode === "VERTICAL") {
     const nodeCenteredPosX = node.x + node.width / 2;
@@ -268,7 +254,6 @@ const layoutAlignInChild = (
     }
   } else {
     // parentNode.layoutMode === "HORIZONTAL"
-
     const nodeCenteredPosY = node.y + node.height / 2;
     const parentCenteredPosY = parentNode.height / 2;
 
@@ -283,4 +268,4 @@ const layoutAlignInChild = (
       return "CENTER";
     }
   }
-};
+}

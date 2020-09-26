@@ -1,13 +1,11 @@
-import { AltSceneNode } from "../../altnodes/altmixins";
+import { AltSceneNode } from "../../alt-nodes/altmixins";
 import { commonPosition } from "../../common/common-osition";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 import { parentCoordinates } from "../../common/parent-coordinates";
 
-export const flutterPosition = (
-  node: AltSceneNode,
+export function flutterPosition(node: AltSceneNode,
   child: string,
-  parentId: string = ""
-): string => {
+  parentId: string = ""): string {
   // avoid adding Positioned() when parent is not a Stack(), which can happen at the beggining
   if (!node.parent || parentId === node.parent.id || child === "") {
     return child;
@@ -31,11 +29,10 @@ export const flutterPosition = (
   }
 
   return child;
-};
+}
 
-const retrieveAbsolutePos = (node: AltSceneNode, child: string): string => {
-  const positionedAlign = (align: string) =>
-    `Positioned.fill(child: Align(alignment: Alignment.${align}, child: ${child}),),`;
+function retrieveAbsolutePos(node: AltSceneNode, child: string): string {
+  const positionedAlign = (align: string) => `Positioned.fill(child: Align(alignment: Alignment.${align}, child: ${child}),),`;
 
   switch (commonPosition(node)) {
     case "":
@@ -61,4 +58,4 @@ const retrieveAbsolutePos = (node: AltSceneNode, child: string): string => {
     case "BottomEnd":
       return positionedAlign("bottomRight");
   }
-};
+}

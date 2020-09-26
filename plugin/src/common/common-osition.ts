@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../altnodes/altmixins";
+import { AltSceneNode } from "../alt-nodes/altmixins";
 import { parentCoordinates } from "./parent-coordinates";
 
 type position =

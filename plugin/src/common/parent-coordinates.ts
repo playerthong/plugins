@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../altnodes/altmixins";
+import { AltSceneNode } from "../alt-nodes/altmixins";
 
 /**
  * In Figma, Groups have absolute position while Frames have relative.
