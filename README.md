@@ -1,5 +1,11 @@
 # bridged-figma-plugin
 
+
+## Usage
+
+install via figma plugin [link here](https://www.figma.com/community/plugin/890215203225987901/Bridged)
+
+
 ## Development guide
 
 *This plugin is built with [Create Figma Plugin](https://github.com/yuanqing/create-figma-plugin).*
