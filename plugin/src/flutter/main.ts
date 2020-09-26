@@ -30,7 +30,15 @@ export function flutterMain(sceneNode: Array<AltSceneNode>,
 
   result = result.slice(0, -1);
 
-  return result;
+  // add function wrapper
+  result = `
+class Component extends StatelessWidget{
+  Widget build(){
+    return ${result}
+  }
+}
+  `
+  return result
 }
 
 // todo lint idea: replace BorderRadius.only(topleft: 8, topRight: 8) with BorderRadius.horizontal(8)
