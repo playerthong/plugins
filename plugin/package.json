@@ -14,6 +14,7 @@
     "@bridged.xyz/figma-flutter": "file:../flutter",
     "@create-figma-plugin/utilities": "0.0.77",
     "css-loader": "^3.1.0",
+    "flutter-builder": "^0.0.4",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^2.1.2",
