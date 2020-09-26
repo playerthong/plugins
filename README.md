@@ -11,33 +11,15 @@
 
 ### Building the plugin
 
-First:
+See [plugin README](/plugin/README.md)
 
-```
-$ yarn install
-```
 
-To build the plugin:
 
-```
-$ yarn build
-```
+## Flutter code builder
 
-This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) file and a `build/` directory containing a JavaScript bundle for the plugin.
+flutter widget builder is done by [figma/flutter](/flutter) and the core builder is powered by [bridged's dynamic](https://github.com/bridgedxyz/dynamic)
 
-To watch for code changes and rebuild the plugin automatically:
 
-```
-$ yarn watch
-```
-
-### Installing the plugin
-
-In the Figma desktop app:
-
-- Open a Figma document.
-- Go to `Plugins` → `Development` → `New Plugin…`.
-- Click the `Click to choose a manifest.json file` box, and select the `manifest.json` file that was generated.
 
 ### Debugging
 
