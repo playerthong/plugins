@@ -1,12 +1,10 @@
-import prettier from "prettier/standalone";
-import java from "prettier-plugin-java"
-// No dart formatter available for nodejs, using java format instead.
+import { formatCode } from "dart-style"
+
+// formatter contains some issue. https://github.com/Dart-Code/Dart-Code/issues/2822
 export function format(code: string): string {
     try {
-        return prettier.format(code, {
-            parser: "java",
-            plugins: [java],
-        });
+        const formatted = formatCode(code);
+        return formatted.code;
     } catch (e) {
         console.error(e);
         return code;
