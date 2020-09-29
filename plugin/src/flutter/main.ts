@@ -5,7 +5,7 @@ import {
   AltGroupNode,
   AltTextNode,
 } from "../alt-nodes/altmixins";
-import { FlutterDefaultBuilder } from "./flutter-defaultBuilder";
+import { FlutterDefaultBuilder } from "./flutter-default-builder";
 import { AltSceneNode } from "../alt-nodes/altmixins";
 import { FlutterTextBuilder } from "./flutter-text";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
@@ -137,11 +137,9 @@ function makeRowColumn(node: AltFrameNode, children: string): string {
 
 
 // TODO Vector support in Flutter is complicated. Currently, AltConversion converts it in a Rectangle.
-const addSpacingIfNeeded = (
-  node: AltSceneNode,
+function addSpacingIfNeeded(node: AltSceneNode,
   index: number,
-  len: number
-): string => {
+  len: number): string {
   if (node.parent?.type === "FRAME" && node.parent.layoutMode !== "NONE") {
     // check if itemSpacing is set and if it isn't the last value.
     // Don't add the SizedBox at last value. In Figma, itemSpacing CAN be negative; here it can't.
@@ -155,4 +153,4 @@ const addSpacingIfNeeded = (
     }
   }
   return "";
-};
+}

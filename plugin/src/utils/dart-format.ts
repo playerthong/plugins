@@ -4,6 +4,7 @@ import { formatCode } from "dart-style"
 export function format(code: string): string {
     try {
         const formatted = formatCode(code);
+        console.log("formatting success");
         return formatted.code;
     } catch (e) {
         console.error(e);

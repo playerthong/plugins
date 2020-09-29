@@ -1,5 +1,5 @@
 import { AltSceneNode } from "../../alt-nodes/altmixins";
-import { commonPosition } from "../../common/common-osition";
+import { commonPosition } from "../../common/common-opsition";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 import { parentCoordinates } from "../../common/parent-coordinates";
 
