@@ -89,41 +89,37 @@ export class AltTextNode {
 
 export interface AltDefaultShapeMixin
   extends AltBaseNodeMixin,
-    AltBlendMixin,
-    AltGeometryMixin,
-    AltRectangleCornerMixin,
-    AltCornerMixin,
-    AltLayoutMixin {}
+  AltBlendMixin,
+  AltGeometryMixin,
+  AltRectangleCornerMixin,
+  AltCornerMixin,
+  AltLayoutMixin { }
 
 export interface AltRectangleNode
   extends AltDefaultShapeMixin,
-    AltCornerMixin,
-    AltRectangleCornerMixin {}
+  AltCornerMixin,
+  AltRectangleCornerMixin { }
 
-export interface AltEllipseNode extends AltDefaultShapeMixin, AltCornerMixin {}
+export interface AltEllipseNode extends AltDefaultShapeMixin, AltCornerMixin { }
 
 export interface AltFrameNode
   extends AltFrameMixin,
-    AltBaseNodeMixin,
-    AltChildrenMixin,
-    AltGeometryMixin,
-    AltCornerMixin,
-    AltRectangleCornerMixin,
-    AltBlendMixin,
-    AltLayoutMixin {}
+  AltBaseNodeMixin,
+  AltChildrenMixin,
+  AltGeometryMixin,
+  AltCornerMixin,
+  AltRectangleCornerMixin,
+  AltBlendMixin,
+  AltLayoutMixin { }
 
 export interface AltGroupNode
   extends AltBaseNodeMixin,
-    AltChildrenMixin,
-    AltBlendMixin,
-    AltLayoutMixin {}
+  AltChildrenMixin,
+  AltBlendMixin,
+  AltLayoutMixin { }
 
 // DOCUMENT
 
-interface AltDocumentNode extends AltBaseNodeMixin, AltChildrenMixin {}
-
-// PAGE
-interface AltPageNode extends AltBaseNodeMixin, AltChildrenMixin {}
 
 interface AltTextMixin {
   characters: string;
@@ -137,6 +133,7 @@ interface AltTextMixin {
 
   fontSize: number | PluginAPI["mixed"];
   fontName: FontName | PluginAPI["mixed"];
+  textStyleId: string | PluginAPI['mixed']
   textCase: TextCase | PluginAPI["mixed"];
   textDecoration: TextDecoration | PluginAPI["mixed"];
   letterSpacing: LetterSpacing | PluginAPI["mixed"];
@@ -145,9 +142,9 @@ interface AltTextMixin {
 
 export interface AltTextNode
   extends AltTextMixin,
-    AltDefaultShapeMixin,
-    AltBaseNodeMixin,
-    AltLayoutMixin {}
+  AltDefaultShapeMixin,
+  AltBaseNodeMixin,
+  AltLayoutMixin { }
 
 export interface AltBaseNodeMixin {
   id: string;

@@ -2,9 +2,7 @@ import { AltSceneNode } from "../../alt-nodes/altmixins";
 import { rgbTo6hex } from "../../utils/color";
 import { retrieveFill } from "../../common/retrieve-fill";
 
-export const retrieveFlutterColors = (
-  sceneNode: Array<AltSceneNode>
-): Array<contrastedColor> => {
+export function retrieveFlutterColors(sceneNode: Array<AltSceneNode>): Array<contrastedColor> {
   const selectedChildren = deepFlatten(sceneNode);
 
   const colorStr: Array<contrastedColor> = [];
@@ -37,7 +35,7 @@ export const retrieveFlutterColors = (
   });
 
   return distinct.sort((a, b) => a.hex.localeCompare(b.hex));
-};
+}
 
 type contrastedColor = {
   hex: string;

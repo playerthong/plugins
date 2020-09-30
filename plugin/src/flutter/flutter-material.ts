@@ -30,10 +30,10 @@ export function flutterMaterial(node: AltRectangleNode | AltEllipseNode | AltFra
 
   const material = `\nMaterial(${materialAttr}), `;
 
-  const sizedBoxAttr = flutterSize(node);
+  const containerAttr = flutterSize(node);
 
-  if (sizedBoxAttr) {
-    return `SizedBox(${sizedBoxAttr}child: ${material}), `;
+  if (containerAttr) {
+    return `Container(${containerAttr}child: ${material}), `;
   }
 
   return material;

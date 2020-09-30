@@ -66,6 +66,16 @@ function frameToRectangleNode(node: FrameNode | InstanceNode | ComponentNode,
   return newNode;
 }
 
+/**
+ * restrictied to single selection
+ * @param sceneNode 
+ * @param altParent 
+ */
+export function convertIntoAltNode(sceneNode: ReadonlyArray<SceneNode>,
+  altParent: AltFrameNode | AltGroupNode | null = null): AltSceneNode {
+  return convertIntoAltNodes(sceneNode, altParent,)[0]
+}
+
 export function convertIntoAltNodes(sceneNode: ReadonlyArray<SceneNode>,
   altParent: AltFrameNode | AltGroupNode | null = null): Array<AltSceneNode> {
   const mapped: Array<AltSceneNode | null> = sceneNode.map(
@@ -75,7 +85,8 @@ export function convertIntoAltNodes(sceneNode: ReadonlyArray<SceneNode>,
         if (node.type === "RECTANGLE") {
           altNode = new AltRectangleNode();
           convertRectangleCorner(altNode, node);
-        } else {
+        }
+        if (node.type === "ELLIPSE") {
           altNode = new AltEllipseNode();
         }
 
@@ -98,6 +109,7 @@ export function convertIntoAltNodes(sceneNode: ReadonlyArray<SceneNode>,
         if (node.children.length === 1 && node.visible !== false) {
           // if Group is visible and has only one child, Group should disappear.
           // there will be a single value anyway.
+          console.warn(`the givven node ${node.name} was type of GROUP, but it has single children, converting it to single node`)
           return convertIntoAltNodes(node.children, altParent)[0];
         }
 
@@ -240,6 +252,7 @@ function convertIntoAltText(altNode: AltTextNode, node: TextNode) {
   altNode.fontName = node.fontName;
   altNode.textCase = node.textCase;
   altNode.textDecoration = node.textDecoration;
+  altNode.textStyleId = node.textStyleId;
   altNode.letterSpacing = node.letterSpacing;
   altNode.textAutoResize = node.textAutoResize;
   altNode.characters = node.characters;

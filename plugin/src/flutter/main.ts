@@ -13,27 +13,26 @@ import { mostFrequent } from "../utils/array-utils";
 
 let parentId = "";
 let material = true;
-
+const DEFAULT_COMPONENT_NAME = "Component";
 /// MAIN
-export function flutterMain(sceneNode: Array<AltSceneNode>,
+export function flutterMain(sceneNode: AltSceneNode,
   parentIdSrc: string = "",
   isMaterial: boolean = false): string {
   parentId = parentIdSrc;
   material = isMaterial;
 
   let result = flutterWidgetGenerator(sceneNode);
-
-  // remove the initial \n that is made in Container.
-  if (result.length > 0 && result.slice(0, 1) === "\n") {
-    result = result.slice(1, result.length);
+  // clean the code. -> this will be merged inside flutter-builder's logic. for now, leave it here.
+  if (result.endsWith(", ") || result.endsWith(",")) {
+    result = result.trimEnd();
+    result = result.replace(/.$/, ";")
   }
-
-  result = result.slice(0, -1);
 
   // add function wrapper
   result = `
-class Component extends StatelessWidget{
-  Widget build(){
+class ${DEFAULT_COMPONENT_NAME} extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
     return ${result}
   }
 }
@@ -42,33 +41,49 @@ class Component extends StatelessWidget{
 }
 
 // todo lint idea: replace BorderRadius.only(topleft: 8, topRight: 8) with BorderRadius.horizontal(8)
-function flutterWidgetGenerator(sceneNode: ReadonlyArray<AltSceneNode>): string {
-  let comp = "";
-  const sceneLen = sceneNode.length;
+function flutterWidgetGenerator(sceneNode: ReadonlyArray<AltSceneNode> | AltSceneNode): string {
+  let componentFlutterCode = "";
 
-  sceneNode.forEach((node, index) => {
+
+  if (Array.isArray(sceneNode)) {
+    console.log("flutterWidgetGenerator:: targetting list of nodes")
+    sceneNode = sceneNode as ReadonlyArray<AltSceneNode>
+    const sceneLen = sceneNode.length;
+
+    sceneNode.forEach((node, index) => {
+      handleNode(node)
+      // if the parent is an AutoLayout, and itemSpacing is set, add a SizedBox between items.
+      // on else, comp += ""
+      componentFlutterCode += addSpacingIfNeeded(node, index, sceneLen);
+    });
+  } else {
+    console.log("flutterWidgetGenerator:: targetting single node")
+    console.log(sceneNode)
+    sceneNode = sceneNode as AltSceneNode
+    handleNode(sceneNode)
+  }
+
+
+  function handleNode(node: AltSceneNode) {
+    console.log(`starting handling node of ${node.name} type of ${node.type}`)
     if (node.type === "RECTANGLE" || node.type === "ELLIPSE") {
-      comp += flutterContainer(node, "");
+      componentFlutterCode += flutterContainer(node, "");
     }
-
 
     //  else if (node.type === "VECTOR") {
     // comp = flutterVector(node);
     // }
     else if (node.type === "GROUP") {
-      comp += flutterGroup(node);
+      componentFlutterCode += flutterGroup(node);
     } else if (node.type === "FRAME") {
-      comp += flutterFrame(node);
+      componentFlutterCode += flutterFrame(node);
     } else if (node.type === "TEXT") {
-      comp += flutterText(node);
+      componentFlutterCode += flutterText(node);
     }
+  }
 
-    // if the parent is an AutoLayout, and itemSpacing is set, add a SizedBox between items.
-    // on else, comp += ""
-    comp += addSpacingIfNeeded(node, index, sceneLen);
-  });
 
-  return comp;
+  return componentFlutterCode;
 }
 
 function flutterGroup(node: AltGroupNode): string {

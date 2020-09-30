@@ -4,6 +4,9 @@ import { AltTextNode } from "../alt-nodes/altmixins";
 import { convertFontWeight } from "../utils/text-convert";
 import { flutterColor } from "./builder/flutter-color";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
+import { getTextStyleById } from "../utils/figma-api-extended";
+import { Theme } from "flutter-builder/dist/material/theme"
+import { typographyIntelisenceMapping } from "../utils/constants";
 
 export class FlutterTextBuilder extends FlutterDefaultBuilder {
   constructor(optChild: string = "") {
@@ -48,7 +51,7 @@ export function makeTextComponent(node: AltTextNode): string {
   // }
   const textStyle = getTextStyle(node);
 
-  const style = textStyle ? `style: TextStyle(${textStyle}), ` : "";
+  const style = textStyle ? `style: ${textStyle}, ` : "";
 
   const splittedChars = text.split("\n");
   const charsWithLineBreak = splittedChars.length > 1 ? splittedChars.join("\\n") : text;
@@ -56,7 +59,36 @@ export function makeTextComponent(node: AltTextNode): string {
   return `Text("${charsWithLineBreak}", ${textAlign}${style}), `;
 }
 
+/**
+ * get the code of Text#style (text-style) via the name of the defined textstyle.
+ * I.E, "H1" will give you "Theme.of(context).textTheme.headline1"
+ * @param textStyleName 
+ */
+function getThemedTextStyleByName(textStyleName: string): string {
+  for (const key of typographyIntelisenceMapping.keys()) {
+    for (const canditate of typographyIntelisenceMapping.get(key)) {
+      if (textStyleName.toLowerCase().includes(canditate)) {
+        console.log(`the givven name ${textStyleName} matches with ${canditate}. themed style is.. ${key}`)
+        return Theme.of().textStyle[key]
+      }
+    }
+  }
+}
+
 export function getTextStyle(node: AltTextNode): string {
+
+  try {
+    const textStyle = getTextStyleById(node.textStyleId as string)
+    console.log(`name of textstyle is... ${textStyle.name}`);
+    const code = getThemedTextStyleByName(textStyle.name);
+    return code;
+  } catch (e) {
+    console.log(`no textstyle for node ${node.name}. skipping to custom textStyle builder. (cannot use theme)`)
+    console.error(e)
+  }
+
+
+
   // example: text-md
   let styleBuilder = "";
 
@@ -91,7 +123,7 @@ export function getTextStyle(node: AltTextNode): string {
     styleBuilder += `letterSpacing: ${numToAutoFixed(letterSpacing)}, `;
   }
 
-  return styleBuilder;
+  return `TextStyle(${styleBuilder})`;
 }
 
 export function wrapTextAutoResize(node: AltTextNode,

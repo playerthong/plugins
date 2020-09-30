@@ -1,4 +1,7 @@
-import { convertIntoAltNodes } from "./alt-nodes/altconversion";
+
+import { convertIntoAltNode, convertIntoAltNodes } from "./alt-nodes/altconversion";
+import { AltTextNode } from "./alt-nodes/altmixins";
+import { getTextStyle } from "./flutter/flutter-text";
 import { flutterMain } from "./flutter/main";
 import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 
@@ -6,10 +9,11 @@ import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 let parentId: string;
 let layerName = false;
 let material = true;
+let rawNode;
 
 figma.showUI(__html__, { width: 450, height: 550 });
 
-const run = () => {
+function run() {
     // ignore when nothing was selected
     if (figma.currentPage.selection.length === 0) {
         figma.ui.postMessage({
@@ -18,19 +22,29 @@ const run = () => {
         return;
     }
 
-    // check [ignoreStackParent] description
-    if (figma.currentPage.selection.length > 0) {
-        parentId = figma.currentPage.selection[0].parent?.id ?? "";
+    // force to single selection
+    // return false or raise error if more than one node is selected.
+    if (figma.currentPage.selection.length >= 2) {
+        figma.notify("only single selection is supported", {
+            timeout: 1.5
+        })
+        return false;
     }
+
+    // check [ignoreStackParent] description
+    rawNode = figma.currentPage.selection[0]
+    parentId = figma.currentPage.selection[0].parent?.id ?? "";
 
     let result = "";
 
-    const convertedSelection = convertIntoAltNodes(
+    console.log("raw node")
+    console.log(rawNode)
+
+    const convertedSelection = convertIntoAltNode(
         figma.currentPage.selection,
         null
     );
 
-    // @ts-ignore
     result = flutterMain(convertedSelection, parentId, material);
 
 
@@ -42,9 +56,9 @@ const run = () => {
     });
     figma.ui.postMessage({
         type: "colors",
-        data: retrieveFlutterColors(convertedSelection),
+        data: retrieveFlutterColors([convertedSelection]),
     });
-};
+}
 
 figma.on("selectionchange", () => {
     run();

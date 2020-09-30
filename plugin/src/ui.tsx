@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div style={{ textAlign: "left" }}>
       <Highlight language="dart" code={(this.state as any).code}></Highlight>
     </div>
   }
