@@ -69,7 +69,7 @@ function getThemedTextStyleByName(textStyleName: string): string {
     for (const canditate of typographyIntelisenceMapping.get(key)) {
       if (textStyleName.toLowerCase().includes(canditate)) {
         console.log(`the givven name ${textStyleName} matches with ${canditate}. themed style is.. ${key}`)
-        return Theme.of().textStyle[key]
+        return Theme.of().textStyle[key].build()
       }
     }
   }

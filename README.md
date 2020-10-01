@@ -23,6 +23,12 @@ See [plugin README](/plugin/README.md)
 
 ## Flutter code builder
 
+
+
+![](doc/images/plugin-flutter-example.png)
+
+
+
 flutter widget builder is done by [figma/flutter](/flutter) and the core builder is powered by [bridged's dynamic](https://github.com/bridgedxyz/dynamic)
 - [figma/flutter](/flutter)
 - [bridgedxyz/flutter-js](https://github.com/bridgedxyz/flutter-js)
