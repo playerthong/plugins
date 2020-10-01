@@ -24,7 +24,17 @@ See [plugin README](/plugin/README.md)
 ## Flutter code builder
 
 flutter widget builder is done by [figma/flutter](/flutter) and the core builder is powered by [bridged's dynamic](https://github.com/bridgedxyz/dynamic)
+- [figma/flutter](/flutter)
+- [bridgedxyz/flutter-js](https://github.com/bridgedxyz/flutter-js)
+- [bridgedxyz/dynamic](https://github.com/bridgedxyz/dynamic)
 
+
+- ✅ `Theme.of` Textstyle support
+- ✅ `Colors.` Color support
+- ✅ Slots support (not static content)
+- ✅ Modularized builder functions - (not all-in-one widget tree)
+- ✅ formatted dart code
+- ✅ Best code quality (I Assure,) in this planet
 
 
 ### Debugging
