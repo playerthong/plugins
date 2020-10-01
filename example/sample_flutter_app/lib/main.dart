@@ -82,159 +82,366 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
 class Component extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x33000000),
-            blurRadius: 15,
-            offset: Offset(0, 11),
-          ),
-          BoxShadow(
-            color: Color(0x1e000000),
-            blurRadius: 46,
-            offset: Offset(0, 9),
-          ),
-          BoxShadow(
-            color: Color(0x23000000),
-            blurRadius: 38,
-            offset: Offset(0, 24),
-          ),
-        ],
-        color: Colors.white,
-      ),
+      width: 414,
+      color: Colors.white,
       padding: const EdgeInsets.only(
-        top: 20,
+        bottom: 24,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Headline 6",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-          SizedBox(height: 27),
-          SizedBox(
-            width: 232,
-            child: Text(
-              "Subtitle 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-              style: Theme.of(context).textTheme.body2,
-            ),
-          ),
-          SizedBox(height: 27),
           Container(
-            height: 52,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
-                  bottomLeft: Radius.circular(4),
-                  bottomRight: Radius.circular(4)),
-            ),
+            height: 55,
+            color: Colors.white,
             padding: const EdgeInsets.only(
-              left: 116,
-              right: 8,
+              top: 16,
+              bottom: 15,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  width: 74,
-                  height: 36,
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 74,
-                        height: 36,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Stack(
-                          children: [
-                            Container(
-                              width: 74,
-                              height: 36,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                            ),
-                            Positioned.fill(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "BUTTON",
-                                  style: Theme.of(context).textTheme.button,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned.fill(
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            width: 74,
-                            height: 49,
-                          ),
-                        ),
-                      ),
-                    ],
+                Text(
+                  "Bridged",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 296),
                 Container(
-                  width: 74,
-                  height: 36,
+                  width: 24,
+                  height: 24,
                   child: Stack(
                     children: [
-                      Container(
-                        width: 74,
-                        height: 36,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Stack(
-                          children: [
-                            Container(
-                              width: 74,
-                              height: 36,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                            ),
-                            Positioned.fill(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "BUTTON",
-                                  style: Theme.of(context).textTheme.button,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                       Positioned.fill(
                         child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            width: 74,
-                            height: 49,
+                          alignment: Alignment.center,
+                          child: Opacity(
+                            opacity: 0.50,
+                            child: Container(
+                              width: 14,
+                              height: 14,
+                              color: Colors.black,
+                            ),
                           ),
+                        ),
+                      ),
+                      Opacity(
+                        opacity: 0.50,
+                        child: Container(
+                          width: 24,
+                          height: 24,
                         ),
                       ),
                     ],
                   ),
                 ),
               ],
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Padding(
+            padding: const EdgeInsets.all(4),
+            child: Opacity(
+              opacity: 0.50,
+              child: Container(
+                width: 16,
+                height: 16,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "visual/red",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24.50),
+              color: Color(0xffff3a3a),
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "#FF3A3A",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 66,
+            height: 66,
+            color: Color(0xffff3a3a),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            color: Color(0xffff6161),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            color: Color(0xffff8d8d),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            color: Color(0xffffb0b0),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            color: Color(0xffffc9c9),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 52,
+            height: 52,
+            color: Color(0xffffdfdf),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "OPEN COLOR SYSTEM SETTINGS",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "Colors.red",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "Colors.visual.red",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "CODE",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "#FF3A3A",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "0XFF3A3A",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "USAGE",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "used in 42 components",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "button/error",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "SIMILAR LIBRARY COLORS",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24.50),
+              color: Color(0xffff3a3a),
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "system/error",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "100% match",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 24,
+            height: 24,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Opacity(
+                      opacity: 0.50,
+                      child: Container(
+                        width: 7.41,
+                        height: 12,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.50,
+                  child: Container(
+                    width: 24,
+                    height: 24,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "VIEW ALL COLOR LIBRARY",
+            style: TextStyle(
+              color: Color(0xff1d1d1d),
+              fontSize: 14,
+              decoration: TextDecoration.underline,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "DESCRIPTION",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Text(
+            "no description has provided yet.",
+            style: TextStyle(
+              color: Color(0xff7f7f7f),
+              fontSize: 18,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            width: 366,
+            height: 105,
+            color: Color(0xfff2f2f2),
+          ),
+          SizedBox(height: 4.86),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              color: Color(0xff131313),
+            ),
+            padding: const EdgeInsets.only(
+              left: 154,
+              right: 153,
+              top: 22,
+              bottom: 24,
+            ),
+            child: Text(
+              "Export",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.button,
             ),
           ),
         ],

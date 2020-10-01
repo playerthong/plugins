@@ -5,13 +5,30 @@ import { getTextStyle } from "./flutter/flutter-text";
 import { flutterMain } from "./flutter/main";
 import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 
-
 let parentId: string;
 let layerName = false;
 let material = false;
 let rawNode;
 
-figma.showUI(__html__, { width: 450, height: 550 });
+
+
+async function showUI() {
+    // load plugin with confugured w/h
+    const rawWidth = await figma.clientStorage.getAsync("width")
+    const rawHeight = await figma.clientStorage.getAsync("height")
+    let width = 375
+    if (rawWidth) {
+        width = parseInt(rawWidth)
+    }
+    let height = 812
+    if (rawHeight) {
+        height = parseInt(rawHeight)
+    }
+    figma.showUI(__html__, { width: width, height: height });
+}
+
+
+showUI()
 
 function run() {
     // ignore when nothing was selected

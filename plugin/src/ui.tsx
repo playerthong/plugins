@@ -31,11 +31,19 @@ class App extends React.Component {
     parent.postMessage({ pluginMessage: { type: 'randomize-selection' } }, '*')
   }
 
+
+  onClickOpenConsole(e) {
+    open("https://bridged.xyz/");
+  }
+
   render() {
-    return <div style={{ textAlign: "left" }}>
+    return <div>
       <Highlight language="dart" code={(this.state as any).code}></Highlight>
       <button onClick={this.onClickRandomize}>
         randomize
+      </button>
+      <button onClick={this.onClickOpenConsole}>
+        open in console
       </button>
     </div>
   }
