@@ -1,4 +1,4 @@
-# bridged-figma-plugin
+# Bridged figma plugin (figma to flutter)
 
 
 ## Usage
