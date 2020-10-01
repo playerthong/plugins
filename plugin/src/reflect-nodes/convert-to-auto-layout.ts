@@ -1,4 +1,4 @@
-import { AltFrameNode, AltGroupNode, AltSceneNode } from "./altmixins";
+import { AltFrameNode, AltGroupNode, AltSceneNode } from "./reflect-mixin";
 import { convertGroupToFrame } from "./convert-group-to-frame";
 
 /**

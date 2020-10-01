@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../../alt-nodes/altmixins";
+import { AltSceneNode } from "../../reflect-nodes/reflect-mixin";
 import { commonPosition } from "../../common/common-position";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 import { parentCoordinates } from "../../common/parent-coordinates";

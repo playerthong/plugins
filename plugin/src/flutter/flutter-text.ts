@@ -1,6 +1,6 @@
 import { commonLetterSpacing } from "../common/common-text-height-spacing";
 import { FlutterDefaultBuilder } from "./flutter-default-builder";
-import { AltTextNode } from "../alt-nodes/altmixins";
+import { AltTextNode } from "../reflect-nodes/reflect-mixin";
 import { convertFontWeight } from "../utils/text-convert";
 import { flutterColor } from "./builder/flutter-color";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";

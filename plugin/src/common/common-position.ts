@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../alt-nodes/altmixins";
+import { AltSceneNode } from "../reflect-nodes/reflect-mixin";
 import { parentCoordinates } from "./parent-coordinates";
 
 type position =

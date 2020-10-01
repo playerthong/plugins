@@ -1,4 +1,4 @@
-import { AltSceneNode } from "../alt-nodes/altmixins";
+import { AltSceneNode } from "../reflect-nodes/reflect-mixin";
 
 export const magicMargin = 32;
 

@@ -1,4 +1,4 @@
-import { AltTextNode } from "../alt-nodes/altmixins";
+import { AltTextNode } from "../reflect-nodes/reflect-mixin";
 
 export const commonLineHeight = (node: AltTextNode): number => {
   if (

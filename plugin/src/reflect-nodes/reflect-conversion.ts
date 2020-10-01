@@ -13,7 +13,7 @@ import {
   AltRectangleCornerMixin,
   AltDefaultShapeMixin,
   AltEllipseNode,
-} from "./altmixins";
+} from "./reflect-mixin";
 import { convertToAutoLayout } from "./convert-to-auto-layout";
 import { notEmpty } from "../utils/general";
 

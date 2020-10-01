@@ -1,4 +1,4 @@
-import { AltGroupNode } from "../alt-nodes/altmixins";
+import { AltGroupNode } from "../reflect-nodes/reflect-mixin";
 import {
   flutterBorderRadius,
   flutterBorder,
@@ -8,7 +8,7 @@ import {
   AltRectangleNode,
   AltEllipseNode,
   AltFrameNode,
-} from "../alt-nodes/altmixins";
+} from "../reflect-nodes/reflect-mixin";
 import { flutterPadding } from "./builder/flutter-padding";
 import { flutterBoxShadow } from "./builder/flutter-shadow";
 import { flutterBoxDecorationColor } from "./builder/flutter-color";

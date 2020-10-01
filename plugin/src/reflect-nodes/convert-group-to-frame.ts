@@ -1,4 +1,4 @@
-import { AltSceneNode, AltFrameNode, AltGroupNode } from "./altmixins";
+import { AltSceneNode, AltFrameNode, AltGroupNode } from "./reflect-mixin";
 
 export function convertGroupToFrame(node: AltGroupNode): AltFrameNode {
   const newNode = new AltFrameNode();

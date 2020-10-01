@@ -1,4 +1,4 @@
-import { AltGroupNode } from "../alt-nodes/altmixins";
+import { AltGroupNode } from "../reflect-nodes/reflect-mixin";
 import { retrieveFill } from "../common/retrieve-fill";
 import { flutterPosition } from "./builder/flutter-position";
 import {
@@ -11,7 +11,7 @@ import {
   AltRectangleNode,
   AltEllipseNode,
   AltFrameNode,
-} from "../alt-nodes/altmixins";
+} from "../reflect-nodes/reflect-mixin";
 
 import { flutterContainer } from "./flutter-container";
 import { flutterMaterial } from "./flutter-material";

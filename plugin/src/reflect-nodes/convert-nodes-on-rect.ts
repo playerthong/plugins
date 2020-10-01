@@ -3,7 +3,7 @@ import {
   AltFrameNode,
   AltGroupNode,
   AltSceneNode,
-} from "./altmixins";
+} from "./reflect-mixin";
 import { convertToAutoLayout } from "./convert-to-auto-layout";
 
 /**

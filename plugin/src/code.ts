@@ -1,6 +1,6 @@
 
-import { convertIntoAltNode, convertIntoAltNodes } from "./alt-nodes/altconversion";
-import { AltTextNode } from "./alt-nodes/altmixins";
+import { convertIntoAltNode, convertIntoAltNodes } from "./reflect-nodes/reflect-conversion";
+import { AltTextNode } from "./reflect-nodes/reflect-mixin";
 import { getTextStyle } from "./flutter/flutter-text";
 import { flutterMain } from "./flutter/main";
 import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";

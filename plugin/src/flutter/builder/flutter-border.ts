@@ -1,4 +1,4 @@
-import { AltSceneNode, AltRectangleNode, AltEllipseNode, AltFrameNode } from "../../alt-nodes/altmixins";
+import { AltSceneNode, AltRectangleNode, AltEllipseNode, AltFrameNode } from "../../reflect-nodes/reflect-mixin";
 import { flutterColor } from "./flutter-color";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
 
