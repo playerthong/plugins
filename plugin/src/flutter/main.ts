@@ -12,7 +12,7 @@ import { numToAutoFixed } from "../common/num-to-auto-fixed";
 import { mostFrequent } from "../utils/array-utils";
 
 let parentId = "";
-let material = true;
+let material = false;
 const DEFAULT_COMPONENT_NAME = "Component";
 /// MAIN
 export function flutterMain(sceneNode: AltSceneNode,
@@ -141,12 +141,15 @@ function makeRowColumn(node: AltFrameNode, children: string): string {
 
   const layoutAlign = mostFreq === "MIN" ? "start" : "center";
 
+  // FIXME comma
   const crossAxisColumn = rowOrColumn === "Column"
     ? `crossAxisAlignment: CrossAxisAlignment.${layoutAlign}, `
     : "";
 
+  // FIXME comma
   const mainAxisSize = "mainAxisSize: MainAxisSize.min, ";
 
+  // FIXME comma
   return `${rowOrColumn}(${mainAxisSize}${crossAxisColumn}children:[${children}], ), `;
 }
 
@@ -160,8 +163,10 @@ function addSpacingIfNeeded(node: AltSceneNode,
     // Don't add the SizedBox at last value. In Figma, itemSpacing CAN be negative; here it can't.
     if (node.parent.itemSpacing > 0 && index < len - 1) {
       if (node.parent.layoutMode === "HORIZONTAL") {
+        // FIXME comma
         return ` SizedBox(width: ${numToAutoFixed(node.parent.itemSpacing)}),`;
       } else {
+        // FIXME comma
         // node.parent.layoutMode === "VERTICAL"
         return ` SizedBox(height: ${numToAutoFixed(node.parent.itemSpacing)}),`;
       }

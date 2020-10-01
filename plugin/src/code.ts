@@ -8,7 +8,7 @@ import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 
 let parentId: string;
 let layerName = false;
-let material = true;
+let material = false;
 let rawNode;
 
 figma.showUI(__html__, { width: 450, height: 550 });

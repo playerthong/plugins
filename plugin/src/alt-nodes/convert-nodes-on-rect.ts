@@ -9,9 +9,7 @@ import { convertToAutoLayout } from "./convert-to-auto-layout";
 /**
  * Identify all nodes that are inside Rectangles and transform those Rectangles into Frames containing those nodes.
  */
-export const convertNodesOnRectangle = (
-  node: AltFrameNode | AltGroupNode
-): AltFrameNode | AltGroupNode => {
+export function convertNodesOnRectangle(node: AltFrameNode | AltGroupNode): AltFrameNode | AltGroupNode {
   if (node.children.length < 2) {
     return node;
   }
@@ -44,7 +42,6 @@ export const convertNodesOnRectangle = (
     const frameNode = convertRectangleToFrame(parentNode);
 
     // todo when the soon-to-be-parent is larger than its parent, things get weird. Happens, for example, when a large image is used in the background. Should this be handled or is this something user should never do?
-
     frameNode.children = [...colliding[key]];
     colliding[key].forEach((d) => {
       d.parent = frameNode;
@@ -64,7 +61,7 @@ export const convertNodesOnRectangle = (
   node = convertToAutoLayout(node);
 
   return node;
-};
+}
 
 const convertRectangleToFrame = (rect: AltRectangleNode) => {
   // if a Rect with elements inside were identified, extract this Rect

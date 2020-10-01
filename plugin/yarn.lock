@@ -1923,12 +1923,13 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-flutter-builder@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/flutter-builder/-/flutter-builder-0.0.9.tgz#2c69d7fbbb472aa7042b6c249903dc3221c33ab6"
-  integrity sha512-8d4P+UIbWKn+E9FeDE2RfBliQ7HkSmAHaGsXRJRjbq7DLvBpkmRttQMW9cQfjlWOnJuZkkWvq8WDfXKyeYlB/A==
+flutter-builder@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/flutter-builder/-/flutter-builder-0.1.0.tgz#d8f9ac49733a8d610afffbde68b23894244a1c23"
+  integrity sha512-lwl7yPY5d2XHdrxThVV41uxgkFZaW2Y70GOK8GhwTEctHSMwcNxaNFLCvwS2VBf9rg52m7a6JqTGq6L2xUyYJA==
   dependencies:
     "@bridged.xyz/remote-ui-core" "0.0.31"
+    dart-style "^1.3.2-dev"
     reflect-metadata "^0.1.13"
 
 for-in@^1.0.2:

@@ -4,6 +4,10 @@ void main() {
   runApp(MyApp());
 }
 
+a(){
+  Colors.white
+}
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -79,52 +83,162 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-
-
-
 class Component extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 393,
-      height: 182,
-      child: Material(
+      width: 280,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x33000000),
+            blurRadius: 15,
+            offset: Offset(0, 11),
+          ),
+          BoxShadow(
+            color: Color(0x1e000000),
+            blurRadius: 46,
+            offset: Offset(0, 9),
+          ),
+          BoxShadow(
+            color: Color(0x23000000),
+            blurRadius: 38,
+            offset: Offset(0, 24),
+          ),
+        ],
         color: Colors.white,
-        child: Stack(
-          children: [
-            Positioned(
-              left: 18,
-              top: 24,
-              child: Container(
-                width: 46,
-                height: 46,
-                child: Material(
-                  color: Color(0xffc4c4c4),
-                  shape: CircleBorder(),
+      ),
+      padding: const EdgeInsets.only(
+        top: 20,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Headline 6",
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          SizedBox(height: 27),
+          SizedBox(
+            width: 232,
+            child: Text(
+              "Subtitle 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+              style: Theme.of(context).textTheme.body2,
+            ),
+          ),
+          SizedBox(height: 27),
+          Container(
+            height: 52,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(4),
+                  bottomRight: Radius.circular(4)),
+            ),
+            padding: const EdgeInsets.only(
+              left: 116,
+              right: 8,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 74,
+                  height: 36,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 74,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 74,
+                              height: 36,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Positioned.fill(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "BUTTON",
+                                  style: Theme.of(context).textTheme.button,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                            width: 74,
+                            height: 49,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+                SizedBox(width: 8),
+                Container(
+                  width: 74,
+                  height: 36,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 74,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 74,
+                              height: 36,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Positioned.fill(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "BUTTON",
+                                  style: Theme.of(context).textTheme.button,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned.fill(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                            width: 74,
+                            height: 49,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Positioned(
-              left: 89,
-              top: 24,
-              child: Text(
-                "test",
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-            ),
-            Positioned(
-              left: 89,
-              top: 57,
-              child: Text(
-                "testtest",
-                style: Theme.of(context).textTheme.caption,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
-
