@@ -38,9 +38,8 @@
     "webpack-cli": "^3.3.6"
   },
   "scripts": {
-    "build": "build-figma-plugin",
-    "watch": "build-figma-plugin --watch",
-    "webpack:watch": "webpack --watch"
+    "webpack:watch": "webpack --watch",
+    "build": "webpack"
   },
   "figma-plugin": {
     "id": "890215203225987901",

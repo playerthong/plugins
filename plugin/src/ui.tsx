@@ -27,9 +27,16 @@ class App extends React.Component {
     }
   }
 
+  onClickRandomize(e) {
+    parent.postMessage({ pluginMessage: { type: 'randomize-selection' } }, '*')
+  }
+
   render() {
     return <div style={{ textAlign: "left" }}>
       <Highlight language="dart" code={(this.state as any).code}></Highlight>
+      <button onClick={this.onClickRandomize}>
+        randomize
+      </button>
     </div>
   }
 }
