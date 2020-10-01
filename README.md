@@ -6,21 +6,6 @@
 install via figma plugin [link here](https://www.figma.com/community/plugin/890215203225987901/Bridged)
 
 
-## Development guide
-
-*This plugin is built with [Create Figma Plugin](https://github.com/yuanqing/create-figma-plugin).*
-
-### Pre-requisites
-
-- [Node.js](https://nodejs.org/)
-- [Figma desktop app](https://figma.com/downloads/)
-
-### Building the plugin
-
-See [plugin README](/plugin/README.md)
-
-
-
 ## Flutter code builder
 
 
@@ -53,6 +38,22 @@ To open the developer console in the Figma desktop app, go to `Plugins` → `Dev
 
 - [Create Figma Plugin docs](https://github.com/yuanqing/create-figma-plugin#docs)
 - [Figma plugin API docs](https://figma.com/plugin-docs/api/)
+
+
+
+## Development guide
+
+*This plugin is built with [Create Figma Plugin](https://github.com/yuanqing/create-figma-plugin).*
+
+### Pre-requisites
+
+- [Node.js](https://nodejs.org/)
+- [Figma desktop app](https://figma.com/downloads/)
+
+### Building the plugin
+
+See [plugin README](/plugin/README.md)
+
 
 
 
