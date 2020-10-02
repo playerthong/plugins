@@ -8,7 +8,7 @@ import { retrieveFlutterColors } from "./flutter/retrieveui/retrieve-colors";
 let parentId: string;
 let layerName = false;
 let material = false;
-let rawNode;
+let rawNode: SceneNode;
 
 
 
@@ -71,6 +71,22 @@ function run() {
         type: "result",
         data: result,
     });
+
+    // send preview image
+    rawNode.exportAsync({
+        format: "PNG",
+        contentsOnly: true,
+        constraint: {
+            type: "HEIGHT",
+            value: 250
+        }
+    }).then(d => {
+        figma.ui.postMessage({
+            type: "preview",
+            data: d,
+        });
+    })
+
     figma.ui.postMessage({
         type: "colors",
         data: retrieveFlutterColors([convertedSelection]),
