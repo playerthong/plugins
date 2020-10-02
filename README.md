@@ -1,3 +1,12 @@
+---
+framework: figma, flutter, react
+platform: Android, iOS, Web, macOS, Linux, Windows
+title: bridged figma plugin
+---
+
+  <meta name="description" content="generate flutter code from figma">
+  <meta name="title" content="bridged figma plugin. figma to flutter code exporter">
+
 # Bridged figma plugin (figma to flutter)
 
 
