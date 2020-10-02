@@ -10,6 +10,8 @@ import { AltSceneNode } from "../reflect-nodes/reflect-mixin";
 import { FlutterTextBuilder } from "./flutter-text";
 import { numToAutoFixed } from "../common/num-to-auto-fixed";
 import { mostFrequent } from "../utils/array-utils";
+import { Widget } from "flutter-builder/dist/widgets"
+
 
 let parentId = "";
 let material = false;
