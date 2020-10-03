@@ -12,6 +12,9 @@ title: bridged figma plugin
 
 ## Usage
 
+> link is temporarily dead. it's being reviewed by figma team. until this plugin is available publicly, you have to build it on local and run it. guideline at [here](/plugin)
+
+
 install via figma plugin [link here](https://www.figma.com/community/plugin/890215203225987901/Bridged)
 
 
