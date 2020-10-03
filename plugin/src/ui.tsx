@@ -31,7 +31,7 @@ class App extends React.Component {
           break;
         case "preview":
           this.setState((state, props) => {
-            return { previewImage: msg.data };
+            return { previewImage: msg.data.source, name: msg.data.name };
           });
           break;
       }
@@ -49,7 +49,7 @@ class App extends React.Component {
 
   render() {
     return <div>
-      <Preview data={(this.state as any).previewImage}></Preview>
+      <Preview data={(this.state as any).previewImage} name={(this.state as any).name}></Preview>
       <Highlight language="dart" code={(this.state as any).code}></Highlight>
       <button onClick={this.onClickRandomize}>
         randomize

@@ -83,7 +83,10 @@ function run() {
     }).then(d => {
         figma.ui.postMessage({
             type: "preview",
-            data: d,
+            data: {
+                source: d,
+                name: rawNode.name
+            },
         });
     })
 

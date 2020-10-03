@@ -1,7 +1,8 @@
 import * as React from "react";
 
 interface Props {
-    data: Uint8Array
+    data: Uint8Array,
+    name: string
 }
 
 interface State {
@@ -33,7 +34,7 @@ export class Preview extends React.Component<Props, State>{
 
     render() {
         return <div>
-            <img src={this.url} width="100%" height="200px" style={{
+            <img alt={this.props.name} src={this.url} width="100%" height="200px" style={{
                 objectFit: "contain", background: "#D9D9D9", padding: "8px"
             }}></img>
         </div>
