@@ -70,6 +70,17 @@ See [plugin README](/plugin/README.md)
 
 
 ### LEGAL
+> read [LICENSE](./LICENSE).
+
+***to shortly breif,***
+- any form of modifing this software, including clone, fork, merge is allowed with no restrictions.
+- making profit "by using" this software is allowed with no restrictions.
+- making profit "by re-distributing" is not allowed. recap, you cannot publish this plugin as an alternative to this original plugin.
+-- why is that? we are taking "minimum" profit from this software, we will prevent from other enterprise from copycatting this software.
+- the code and packages distributed via this repository is free to use without any restrictions.
+- code, design is free to use and modify. (just don't make any profits by re-distributing this plugin.)
+
+
 the initial commit of this project was based on [FigmaToCode](https://github.com/bernaferrari/FigmaToCode) for use of flutter code generation, which was (is) under MIT License. By this acknowledgement and referencing the original MIT Licensed project, Bridged have done all legal obligation operations.
 
 re-use of this software and it's license is overrided by [contributing-and-license](https://github.com/bridgedxyz/contributing-and-license)
