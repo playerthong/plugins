@@ -25,7 +25,7 @@ export function flutterMain(sceneNode: AltSceneNode,
 
   let result = flutterWidgetGenerator(sceneNode);
   // clean the code. -> this will be merged inside flutter-builder's logic. for now, leave it here.
-  if (result.endsWith(", ") || result.endsWith(",")) {
+  if (result.endsWith(", ") || result.endsWith(",") || result.endsWith(")")) {
     result = result.trimEnd();
     result = result.replace(/.$/, ";")
   }
