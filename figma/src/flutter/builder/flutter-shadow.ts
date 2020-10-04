@@ -1,6 +1,8 @@
 import { AltSceneNode } from "../../reflect-nodes/reflect-mixin";
 import { rgbTo8hex } from "../../utils/color";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
+import { Offset } from "flutter-builder/dist/dart-ui/offset"
+import { BoxShadow } from "flutter-builder/dist/painting/box-shadow"
 
 export function flutterBoxShadow(node: AltSceneNode): string {
   let propBoxShadow = "";
@@ -15,9 +17,12 @@ export function flutterBoxShadow(node: AltSceneNode): string {
       dropShadow.forEach((d: ShadowEffect) => {
         const color = `color: Color(0x${rgbTo8hex(d.color, d.color.a)}), `;
         const radius = `blurRadius: ${numToAutoFixed(d.radius)}, `;
+
+        // TODO replace with this -> const offset = new Offset(d.offset.x, d.offset.y)
         const offset = `offset: Offset(${numToAutoFixed(
           d.offset.x
         )}, ${numToAutoFixed(d.offset.y)}), `;
+        // TODO replace with this -> new BoxShadow()
         boxShadow += `BoxShadow(${color}${radius}${offset}),`;
       });
 

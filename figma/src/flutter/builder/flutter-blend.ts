@@ -1,14 +1,19 @@
 import { AltBlendMixin, AltLayoutMixin, AltSceneNode } from "../../reflect-nodes/reflect-mixin";
 import { numToAutoFixed } from "../../common/num-to-auto-fixed";
+import { Opacity } from "flutter-builder/dist/widgets/opacity"
+import { PrebuiltWidget } from "flutter-builder/dist/builder/prebuilt-widget";
+import { Visibility } from "flutter-builder/dist/widgets/visibility";
+
 
 /**
  * https://api.flutter.dev/flutter/widgets/Opacity-class.html
  */
 export function flutterOpacity(node: AltBlendMixin, child: string): string {
   if (node.opacity !== undefined && node.opacity !== 1 && child !== "") {
-    return `Opacity(opacity: ${numToAutoFixed(
-      node.opacity
-    )}, child: ${child}),`;
+    return new Opacity({
+      opacity: node.opacity,
+      child: new PrebuiltWidget(child)
+    }).build().lookup({ withComma: true });
   }
   return child;
 }
@@ -20,7 +25,10 @@ export function flutterVisibility(node: AltSceneNode,
   child: string): string {
   // [when testing] node.visible can be undefined
   if (node.visible !== undefined && node.visible === false && child !== "") {
-    return `Visibility(visible: ${node.visible}, child: ${child}),`;
+    return new Visibility({
+      visible: node.visible,
+      child: new PrebuiltWidget(child)
+    }).build().lookup({ withComma: true });
   }
   return child;
 }

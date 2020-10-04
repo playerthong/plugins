@@ -43,7 +43,10 @@ export function makeTextComponent(node: AltTextNode): string {
 
   // todo if layoutAlign !== MIN, Text will be wrapped by Align
   // if alignHorizontal is LEFT, don't do anything because that is native
-  const textAlign = TextAlign[alignHorizontal]
+  let textAlign: TextAlign
+  if (alignHorizontal !== "left") {
+    textAlign = TextAlign[alignHorizontal]
+  }
 
   //#region get text content
   let text = node.characters;

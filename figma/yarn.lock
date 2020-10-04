@@ -1932,10 +1932,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-flutter-builder@^0.1.13:
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/flutter-builder/-/flutter-builder-0.1.13.tgz#6bdbfed3f211af70f058615b033369f6f217747b"
-  integrity sha512-xc0BoFJLhwNaHCKuFB7Sz7mhlLtx1VIK8E5iYlugXIGaSQooFE3p5Up1F+WiPoifzn09GWryKbFAYheTbky0iw==
+flutter-builder@^1.23.0-7.0.pre.3:
+  version "1.23.0-7.0.pre.3"
+  resolved "https://registry.yarnpkg.com/flutter-builder/-/flutter-builder-1.23.0-7.0.pre.3.tgz#36d1b7f22746b528b7004bf7ac08059d0c948295"
+  integrity sha512-cyYVjCyylX09k5M8LcfHBDanv/RV+WZrOkOIOgF1NKuDZycxexDhdx/0VW75mcA2EZEiV2V7RWQQP8G+kxPoJg==
   dependencies:
     "@abraham/reflection" "^0.7.0"
     "@bridged.xyz/remote-ui-core" "0.0.31"
