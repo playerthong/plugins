@@ -11,12 +11,11 @@
   "license": "MIT",
   "author": "Bridged, INC. and softmarshmallow",
   "dependencies": {
-    "@bridged.xyz/figma-flutter": "file:../flutter",
     "@create-figma-plugin/utilities": "0.0.77",
     "copy-to-clipboard": "^3.3.1",
     "css-loader": "^3.1.0",
     "dart-style": "^1.3.2-dev",
-    "flutter-builder": "^0.1.0",
+    "flutter-builder": "^0.1.8",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "open": "^7.3.0",
